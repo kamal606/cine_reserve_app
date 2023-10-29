@@ -25,6 +25,7 @@ class HomeViewBody extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
+                //here i put all body home above blurredCircle
                 Stack(
                   children: [
                     const BlurredCircle(),
