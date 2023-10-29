@@ -8,26 +8,19 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: 70.h,
-          decoration: BoxDecoration(
-            color: AppColor.secondry,
-            border: Border.merge(
-                Border(
-                    top: BorderSide.merge(
-                  const BorderSide(color: AppColor.primary),
-                  const BorderSide(color: AppColor.primary),
-                )),
-                const Border()),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.h),
-            child: const BodyBottomNavBar(),
-          ),
-        )
-      ],
+    return Container(
+      height: 60.h,
+      decoration: BoxDecoration(
+        color: AppColor.secondry,
+        border: Border.merge(
+            Border(
+                top: BorderSide.merge(
+              const BorderSide(color: AppColor.primary),
+              const BorderSide(color: AppColor.primary),
+            )),
+            const Border()),
+      ),
+      child: const BodyBottomNavBar(),
     );
   }
 }

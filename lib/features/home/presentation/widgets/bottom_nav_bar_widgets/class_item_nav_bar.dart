@@ -6,7 +6,7 @@ class ItemBottomNavBar {
   final double sizeItem;
   ItemBottomNavBar({
     required this.nameItem,
-  }) : sizeItem = 23.h;
+  }) : sizeItem = 20.h;
 
   static List<ItemBottomNavBar> listItemNavBar = [
     ItemBottomNavBar(nameItem: AppIcons.home),
