@@ -1,3 +1,4 @@
+import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/body_home_view.dart';
 
@@ -11,8 +12,8 @@ class HomeView extends StatelessWidget {
     return const Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
-        title: "Choose Movie",
-        hintText: "Search",
+        title: kchooseMovie,
+        hintText: kSearch,
       ),
       body: HomeViewBody(),
     );
