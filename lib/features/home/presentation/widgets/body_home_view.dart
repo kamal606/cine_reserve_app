@@ -35,15 +35,15 @@ class HomeViewBody extends StatelessWidget {
                         SizedBox(
                           height: 7.h,
                         ),
-                        const CustomListViewCardMovie(
-                          titleList: kNowCinemas,
+                        const CustomListViewNowInCinemas(
+                          titleList: kNewCinemas,
                         ),
-                        const CustomListViewCardMovie(
-                          titleList: kComingSoon,
-                        ),
-                        const CustomListViewCardMovie(
-                          titleList: kTopMovies,
-                        ),
+                        // const CustomListViewNowInCinemas(
+                        //   titleList: kComingSoon,
+                        // ),
+                        // const CustomListViewNowInCinemas(
+                        //   titleList: kTopMovies,
+                        // ),
                       ],
                     )
                   ],
