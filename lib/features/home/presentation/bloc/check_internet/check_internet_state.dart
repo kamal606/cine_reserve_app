@@ -6,8 +6,6 @@ class CheckInternetState extends Equatable {
   List<Object> get props => [];
 }
 
-class CheckInternetinitial extends CheckInternetState {}
-
 class OnlineState extends CheckInternetState {}
 
 class OfflineState extends CheckInternetState {}

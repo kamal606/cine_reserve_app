@@ -1,8 +1,7 @@
 import 'package:cine_reserve_app/core/functions/toast.dart';
-
 import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/custom_card_movie.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/custom_title_list.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_card_movie.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_title_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,9 +33,6 @@ class CustomListViewNowInCinemas extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              if (state is NewInCinemasLoading) {
-                return const CircularProgressIndicator();
-              }
               if (state is NewInCinemasSuccess) {
                 return ListView.builder(
                     physics: const BouncingScrollPhysics(),

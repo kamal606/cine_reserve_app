@@ -9,7 +9,7 @@ part 'new_in_cinemas_state.dart';
 class NewInCinemasBloc extends Bloc<NewInCinemasEvent, NewInCinemasState> {
   final NewInCinemasUseCase newInCinemasUseCase;
   NewInCinemasBloc({required this.newInCinemasUseCase})
-      : super(NewInCinemasInitial()) {
+      : super(NewInCinemasLoading()) {
     on<NewInCinemasGetEvent>(_onNewInCinemasGetEvent);
   }
 

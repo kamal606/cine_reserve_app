@@ -9,7 +9,7 @@ part 'check_internet_state.dart';
 
 class CheckInternetBloc extends Bloc<CheckInternetEvent, CheckInternetState> {
   StreamSubscription? streamSubscription;
-  CheckInternetBloc() : super(CheckInternetinitial()) {
+  CheckInternetBloc() : super(OnlineState()) {
     streamSubscription = Connectivity().onConnectivityChanged.listen((result) {
       if (result != ConnectivityResult.none) {
         add(OnlineEvent());

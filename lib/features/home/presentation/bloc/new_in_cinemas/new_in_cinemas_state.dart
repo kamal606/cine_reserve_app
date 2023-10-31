@@ -7,8 +7,6 @@ sealed class NewInCinemasState extends Equatable {
   List<Object> get props => [];
 }
 
-final class NewInCinemasInitial extends NewInCinemasState {}
-
 final class NewInCinemasLoading extends NewInCinemasState {}
 
 final class NewInCinemasSuccess extends NewInCinemasState {
