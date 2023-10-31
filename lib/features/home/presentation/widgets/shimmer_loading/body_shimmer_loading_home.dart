@@ -7,8 +7,8 @@ import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_load
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ShimmerLoagingHome extends StatelessWidget {
-  const ShimmerLoagingHome({super.key});
+class ShimmerLoadingHome extends StatelessWidget {
+  const ShimmerLoadingHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,22 @@ class ShimmerLoagingHome extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const ShimmerTitleList(),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            const ShimmerListMovie(),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            const ShimmerTitleList(),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            const ShimmerListMovie(),
+                            SizedBox(
+                              height: 10.h,
+                            ),
                             const ShimmerTitleList(),
                             SizedBox(
                               height: 10.h,

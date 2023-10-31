@@ -7,10 +7,7 @@ class ApiService {
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     final result = await _dio.get("$kBaseUrl$endPoint",
-        options: Options(headers: {
-          "authorization":
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTU0ZGJhZTRkYWRiMmVmMjQ3MTUzYjE5NzdmYTYwZiIsInN1YiI6IjY1M2I5NTdiY2M5NjgzMDBjOWUzMDMzZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jCyclBJJim-CN3ThQLMSQVUcC4mKimzUi-FdHqtpHt4"
-        }));
+        options: Options(headers: {"Authorization": "Bearer $kToken"}));
     return result.data;
   }
 }

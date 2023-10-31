@@ -16,6 +16,9 @@ class CustomCardMovie extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",
           fit: BoxFit.fill,
+          errorWidget: (context, url, error) {
+            return const Icon(Icons.error);
+          },
         ),
       ),
     );

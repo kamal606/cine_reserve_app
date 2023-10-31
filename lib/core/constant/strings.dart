@@ -13,3 +13,5 @@ const String koffline =
 const String kBaseUrl = "https://api.themoviedb.org/3/";
 const String kBaseImage = "https://image.tmdb.org/t/p/w500/";
 const String kEndPointsNowInCinemas = "movie/now_playing";
+const String kToken =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTU0ZGJhZTRkYWRiMmVmMjQ3MTUzYjE5NzdmYTYwZiIsInN1YiI6IjY1M2I5NTdiY2M5NjgzMDBjOWUzMDMzZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jCyclBJJim-CN3ThQLMSQVUcC4mKimzUi-FdHqtpHt4";

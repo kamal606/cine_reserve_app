@@ -30,6 +30,7 @@ class HomeViewBody extends StatelessWidget {
                   children: [
                     const BlurredCircle(),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const CustomCarouselHome(),
                         SizedBox(
@@ -38,13 +39,6 @@ class HomeViewBody extends StatelessWidget {
                         const CustomListViewNowInCinemas(
                           titleList: kNewCinemas,
                         ),
-
-                        // const CustomListViewNowInCinemas(
-                        //   titleList: kComingSoon,
-                        // ),
-                        // const CustomListViewNowInCinemas(
-                        //   titleList: kTopMovies,
-                        // ),
                       ],
                     )
                   ],

@@ -12,6 +12,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.initGetIt();
   Bloc.observer = MyBlocObserver();
+  await Future.delayed(const Duration(milliseconds: 500));
   systemChrome();
 }
 
@@ -31,7 +32,7 @@ class CineReserveApp extends StatelessWidget {
                 di.sl<NewInCinemasBloc>()..add(NewInCinemasGetEvent()),
           ),
           BlocProvider(
-            create: (context) => CheckInternetBloc(),
+            create: (context) => di.sl<CheckInternetBloc>(),
           ),
         ],
         child: MaterialApp.router(

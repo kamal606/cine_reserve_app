@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 
@@ -8,9 +9,10 @@ part 'check_internet_event.dart';
 part 'check_internet_state.dart';
 
 class CheckInternetBloc extends Bloc<CheckInternetEvent, CheckInternetState> {
-  StreamSubscription? streamSubscription;
-  CheckInternetBloc() : super(OnlineState()) {
-    streamSubscription = Connectivity().onConnectivityChanged.listen((result) {
+  StreamSubscription? streamConnectivity;
+
+  CheckInternetBloc() : super(InitState()) {
+    streamConnectivity = Connectivity().onConnectivityChanged.listen((result) {
       if (result != ConnectivityResult.none) {
         add(OnlineEvent());
       } else {
@@ -39,8 +41,7 @@ class CheckInternetBloc extends Bloc<CheckInternetEvent, CheckInternetState> {
 
   @override
   Future<void> close() {
-    streamSubscription?.cancel();
-
+    streamConnectivity?.cancel();
     return super.close();
   }
 }

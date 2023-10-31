@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
       body: BlocBuilder<NewInCinemasBloc, NewInCinemasState>(
         builder: (context, state) {
           if (state is NewInCinemasLoading) {
-            return const ShimmerLoagingHome();
+            return const ShimmerLoadingHome();
           }
           return const HomeViewBody();
         },
