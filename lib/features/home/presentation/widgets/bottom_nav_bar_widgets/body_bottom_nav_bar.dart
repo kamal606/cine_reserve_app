@@ -47,10 +47,13 @@ class _BodyBottomNavBarState extends State<BodyBottomNavBar> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      item.nameItem,
-                      height: item.sizeItem,
-                      width: item.sizeItem,
+                    ColorFiltered(
+                      colorFilter: const ColorFilter.srgbToLinearGamma(),
+                      child: Image.asset(
+                        item.nameItem,
+                        height: item.sizeItem,
+                        width: item.sizeItem,
+                      ),
                     ),
                   ],
                 ),

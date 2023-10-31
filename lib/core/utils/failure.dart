@@ -39,6 +39,7 @@ class ServerFailure extends Failure {
         return ServerFailure(
             message:
                 "No internet connection available. Please check your network settings and try again.");
+
       case DioExceptionType.unknown:
         return ServerFailure(
             message:

@@ -8,4 +8,5 @@ abstract class AppIcons {
   static const String profile = "assets/images/icons/Profile.png";
   static const String ticket = "assets/images/icons/Ticket.png";
   static const String search = "assets/images/icons/magnifyingglass.png";
+  static const String offline = "assets/images/icons/offline-5.png";
 }

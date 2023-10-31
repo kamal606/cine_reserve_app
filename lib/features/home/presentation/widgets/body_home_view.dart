@@ -38,6 +38,7 @@ class HomeViewBody extends StatelessWidget {
                         const CustomListViewNowInCinemas(
                           titleList: kNewCinemas,
                         ),
+
                         // const CustomListViewNowInCinemas(
                         //   titleList: kComingSoon,
                         // ),

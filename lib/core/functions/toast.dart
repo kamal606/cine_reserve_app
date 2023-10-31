@@ -1,15 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:fluttertoast/fluttertoast.dart';
 
 toast({required String message}) {
   Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0.sp);
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 3,
+      backgroundColor: AppColor.primary,
+      textColor: AppColor.white.withAlpha(175),
+      fontSize: 14.0.sp);
 }
