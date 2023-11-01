@@ -4,7 +4,6 @@ import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_list_movie_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'carousel_home.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -34,7 +33,7 @@ class HomeViewBody extends StatelessWidget {
                       children: [
                         const CustomCarouselHome(),
                         SizedBox(
-                          height: 7.h,
+                          height: 20.h,
                         ),
                         const CustomListViewNowInCinemas(
                           titleList: kNowCinemas,

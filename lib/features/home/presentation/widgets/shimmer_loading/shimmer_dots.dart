@@ -11,12 +11,12 @@ class ShimmerDots extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ...List.generate(3, (index) {
+        ...List.generate(11, (index) {
           return Shimmer.fromColors(
             baseColor: Colors.black12,
             highlightColor: AppColor.secondry,
             child: Padding(
-              padding: EdgeInsets.only(right: 20.h),
+              padding: EdgeInsets.only(right: 5.w),
               child: CircleAvatar(radius: 4.r, backgroundColor: AppColor.white),
             ),
           );

@@ -3,6 +3,7 @@ import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_carusel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_dots.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_list_movie.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_row_carousel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_title_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,6 +33,10 @@ class ShimmerLoadingHome extends StatelessWidget {
                     Column(
                       children: [
                         const ShimmerCarusel(),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        const ShimmerRowCarousel(),
                         SizedBox(
                           height: 7.h,
                         ),

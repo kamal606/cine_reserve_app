@@ -10,4 +10,5 @@ abstract class AppColor {
   static const Color lavenderMist = Color(0XFFEBEBF5);
   static const Color steelBlue = Color(0XFF4E748B);
   static const Color black = Color(0XFF000000);
+  static const Color grey = Color(0XFF808080);
 }

@@ -1,6 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cine_reserve_app/core/constant/app_color.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/genre_string.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/button_with_title_carousel.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/dots_carousel.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/image_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomCarouselHome extends StatefulWidget {
@@ -10,66 +16,60 @@ class CustomCarouselHome extends StatefulWidget {
   State<CustomCarouselHome> createState() => _CustomCarouselHomeState();
 }
 
-List<String> itemCarousel = [
-  "assets/images/test/Carousel Banners.png",
-  "assets/images/test/Rectangle 17.png",
-  "assets/images/test/Rectangle 17.png"
-];
 int indexList = 0;
 
 class _CustomCarouselHomeState extends State<CustomCarouselHome> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            height: 125.h,
-            viewportFraction: 1.0,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            autoPlay: true,
-            onPageChanged: (i, _) {
-              setState(() {
-                indexList = i;
-              });
-            },
-          ),
-          items: itemCarousel
-              .map((e) => Builder(builder: (context) {
-                    return Column(
-                      children: [
-                        Expanded(
-                          child: Image.asset(
-                            e,
-                            fit: BoxFit.fill,
-                            width: MediaQuery.of(context).size.width,
-                          ),
-                        ),
-                      ],
-                    );
-                  }))
-              .toList(),
-        ),
-        SizedBox(
-          height: 5.h,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return BlocBuilder<NowInCinemasBloc, NowInCinemasState>(
+      builder: (context, state) {
+        List<MoviesEntity> listOfThreeMovies =
+            (state as NowInCinemasSuccess).listMovie.sublist(4, 15);
+
+        return Column(
           children: [
-            ...List.generate(itemCarousel.length, (index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.h),
-                child: CircleAvatar(
-                  radius: 4.r,
-                  backgroundColor: index == indexList
-                      ? AppColor.white
-                      : AppColor.white.withAlpha(86),
-                ),
-              );
-            }),
+            CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 3 / 1.65,
+                viewportFraction: 1,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                autoPlay: true,
+                onPageChanged: (i, _) {
+                  setState(() {
+                    indexList = i;
+                  });
+                },
+              ),
+              items: listOfThreeMovies
+                  .map((movieEntity) => Builder(builder: (context) {
+                        GenreString genre = GenreString();
+                        List<String?> genreString =
+                            genre.genreStringMethod(genre, movieEntity);
+                        return Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: Column(
+                            children: [
+                              ImageCarousel(moviesEntity: movieEntity),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              ButtonWithTitleCarousel(
+                                moviesEntity: movieEntity,
+                                genreString: genreString,
+                              )
+                            ],
+                          ),
+                        );
+                      }))
+                  .toList(),
+            ),
+            DotsCarousel(
+              indexList: indexList,
+              listOfThreeMovies: listOfThreeMovies,
+            )
           ],
-        )
-      ],
+        );
+      },
     );
   }
 }

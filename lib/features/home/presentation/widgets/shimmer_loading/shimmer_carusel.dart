@@ -11,9 +11,15 @@ class ShimmerCarusel extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.black12,
       highlightColor: AppColor.secondry,
-      child: Container(
-        height: 125.h,
-        color: AppColor.white,
+      child: AspectRatio(
+        aspectRatio: 5 / 2,
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.w),
+          decoration: BoxDecoration(
+            color: AppColor.white,
+            borderRadius: BorderRadius.circular(10.r),
+          ),
+        ),
       ),
     );
   }

@@ -9,12 +9,12 @@ abstract class AppLinear {
         AppColor.primary,
         AppColor.secondry,
       ]);
-  static LinearGradient linearCatalogeHome = LinearGradient(
-      begin: Alignment.topCenter,
-      end: Alignment.bottomCenter,
+
+  static LinearGradient linearButton = const LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
       colors: [
-        AppColor.white.withAlpha(40),
-        AppColor.white.withAlpha(40),
-        AppColor.coralRed.withAlpha(150),
+        AppColor.tan,
+        AppColor.coralRed,
       ]);
 }
