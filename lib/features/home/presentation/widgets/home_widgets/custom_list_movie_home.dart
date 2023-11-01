@@ -26,14 +26,14 @@ class CustomListViewNowInCinemas extends StatelessWidget {
         ),
         SizedBox(
           height: 120.h,
-          child: BlocConsumer<NewInCinemasBloc, NewInCinemasState>(
+          child: BlocConsumer<NowInCinemasBloc, NowInCinemasState>(
             listener: (context, state) {
-              if (state is NewInCinemasFailure) {
+              if (state is NowInCinemasFailure) {
                 toast(message: state.errorMessage);
               }
             },
             builder: (context, state) {
-              if (state is NewInCinemasSuccess) {
+              if (state is NowInCinemasSuccess) {
                 return ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: state.listMovie.length,
@@ -42,7 +42,7 @@ class CustomListViewNowInCinemas extends StatelessWidget {
                       return Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 12.w),
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
                             child: CustomCardMovie(
                               moviesEntity: state.listMovie[i],
                             ),

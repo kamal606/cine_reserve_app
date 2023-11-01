@@ -9,4 +9,12 @@ abstract class AppLinear {
         AppColor.primary,
         AppColor.secondry,
       ]);
+  static LinearGradient linearCatalogeHome = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        AppColor.white.withAlpha(40),
+        AppColor.white.withAlpha(40),
+        AppColor.coralRed.withAlpha(150),
+      ]);
 }

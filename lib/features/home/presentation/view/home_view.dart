@@ -19,9 +19,9 @@ class HomeView extends StatelessWidget {
         title: kchooseMovie,
         hintText: kSearch,
       ),
-      body: BlocBuilder<NewInCinemasBloc, NewInCinemasState>(
+      body: BlocBuilder<NowInCinemasBloc, NowInCinemasState>(
         builder: (context, state) {
-          if (state is NewInCinemasLoading) {
+          if (state is NowInCinemasLoading) {
             return const ShimmerLoadingHome();
           }
           return const HomeViewBody();

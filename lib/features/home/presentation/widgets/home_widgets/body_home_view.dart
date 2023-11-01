@@ -37,7 +37,10 @@ class HomeViewBody extends StatelessWidget {
                           height: 7.h,
                         ),
                         const CustomListViewNowInCinemas(
-                          titleList: kNewCinemas,
+                          titleList: kNowCinemas,
+                        ),
+                        SizedBox(
+                          height: 7.h,
                         ),
                       ],
                     )

@@ -5,14 +5,14 @@ import 'package:cine_reserve_app/features/home/domain/repository/new_in_cinemas_
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class NewInCinemasRepoImpl implements NewInCinemasRepo {
-  final NewInCinemasRemoteImpl newInCinemasRemoteImpl;
+class NowInCinemasRepoImpl implements NowInCinemasRepo {
+  final NowInCinemasRemoteImpl newInCinemasRemoteImpl;
 
-  NewInCinemasRepoImpl({required this.newInCinemasRemoteImpl});
+  NowInCinemasRepoImpl({required this.newInCinemasRemoteImpl});
   @override
-  Future<Either<Failure, List<MoviesEntity>>> fetchNewInCinemas() async {
+  Future<Either<Failure, List<MoviesEntity>>> fetchNowInCinemas() async {
     try {
-      final data = await newInCinemasRemoteImpl.getNewInCinemas();
+      final data = await newInCinemasRemoteImpl.getNowInCinemas();
       return right(data);
     } catch (e) {
       if (e is DioException) {

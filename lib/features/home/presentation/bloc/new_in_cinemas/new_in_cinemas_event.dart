@@ -1,10 +1,10 @@
 part of 'new_in_cinemas_bloc.dart';
 
-sealed class NewInCinemasEvent extends Equatable {
-  const NewInCinemasEvent();
+sealed class NowInCinemasEvent extends Equatable {
+  const NowInCinemasEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class NewInCinemasGetEvent extends NewInCinemasEvent {}
+class NowInCinemasGetEvent extends NowInCinemasEvent {}

@@ -1,26 +1,26 @@
 part of 'new_in_cinemas_bloc.dart';
 
-sealed class NewInCinemasState extends Equatable {
-  const NewInCinemasState();
+sealed class NowInCinemasState extends Equatable {
+  const NowInCinemasState();
 
   @override
   List<Object> get props => [];
 }
 
-final class NewInCinemasLoading extends NewInCinemasState {}
+final class NowInCinemasLoading extends NowInCinemasState {}
 
-final class NewInCinemasSuccess extends NewInCinemasState {
+final class NowInCinemasSuccess extends NowInCinemasState {
   final List<MoviesEntity> listMovie;
 
-  const NewInCinemasSuccess({required this.listMovie});
+  const NowInCinemasSuccess({required this.listMovie});
   @override
   List<Object> get props => [listMovie];
 }
 
-final class NewInCinemasFailure extends NewInCinemasState {
+final class NowInCinemasFailure extends NowInCinemasState {
   final String errorMessage;
 
-  const NewInCinemasFailure({required this.errorMessage});
+  const NowInCinemasFailure({required this.errorMessage});
   @override
   List<Object> get props => [errorMessage];
 }

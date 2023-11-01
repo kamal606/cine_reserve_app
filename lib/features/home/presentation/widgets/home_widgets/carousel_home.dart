@@ -58,7 +58,7 @@ class _CustomCarouselHomeState extends State<CustomCarouselHome> {
           children: [
             ...List.generate(itemCarousel.length, (index) {
               return Padding(
-                padding: EdgeInsets.only(right: 20.h),
+                padding: EdgeInsets.symmetric(horizontal: 10.h),
                 child: CircleAvatar(
                   radius: 4.r,
                   backgroundColor: index == indexList
