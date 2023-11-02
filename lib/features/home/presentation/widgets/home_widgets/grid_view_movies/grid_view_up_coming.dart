@@ -1,15 +1,15 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/functions/toast.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/genre_string.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_card_movie.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_title_list.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/up_coming/up_coming_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_card_movie.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_title_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GridViewNowInCinemasHome extends StatelessWidget {
-  const GridViewNowInCinemasHome({super.key});
+class GridViewUpComingHome extends StatelessWidget {
+  const GridViewUpComingHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +17,18 @@ class GridViewNowInCinemasHome extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleListViewHome(
-          title: kNowCinemas,
+          title: kUpComingMovies,
         ),
         SizedBox(
           height: 300.h,
-          child: BlocConsumer<NowInCinemasBloc, NowInCinemasState>(
+          child: BlocConsumer<UpComingBloc, UpComingState>(
             listener: (context, state) {
-              if (state is NowInCinemasFailure) {
+              if (state is UpComingStateFailure) {
                 toast(message: state.errorMessage);
               }
             },
             builder: (context, state) {
-              if (state is NowInCinemasSuccess) {
+              if (state is UpComingStateSuccess) {
                 return GridView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: state.listMovie.length,

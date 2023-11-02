@@ -24,7 +24,6 @@ class GenreString {
   };
 
   List<String?> getGenreName(List<dynamic> genreId) {
-    // return genreId.map((e) => genreMapping[e] ?? "").toList();
     List<String?> listGenre = [];
     for (int idNumber in genreId) {
       listGenre.add(genreMapping[idNumber]);

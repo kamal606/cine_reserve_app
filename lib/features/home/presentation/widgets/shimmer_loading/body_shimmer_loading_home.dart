@@ -21,6 +21,7 @@ class ShimmerLoadingHome extends StatelessWidget {
         gradient: AppLinear.linearPages,
       ),
       child: CustomScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,

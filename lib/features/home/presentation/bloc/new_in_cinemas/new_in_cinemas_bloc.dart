@@ -16,6 +16,7 @@ class NowInCinemasBloc extends Bloc<NowInCinemasEvent, NowInCinemasState> {
   NowInCinemasBloc(
       {required this.newInCinemasUseCase, required this.checkInternetBloc})
       : super(NowInCinemasLoading()) {
+    // stream to listen internet
     streamSubscription = checkInternetBloc.stream.listen((state) {
       if (state is OnlineState) {
         add(NowInCinemasGetEvent());

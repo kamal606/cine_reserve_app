@@ -4,6 +4,8 @@ import 'package:cine_reserve_app/core/utils/dependency_injection.dart' as di;
 import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/top_rated/top_rated_movies_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/up_coming/up_coming_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,6 +35,14 @@ class CineReserveApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => di.sl<CheckInternetBloc>(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                di.sl<UpComingBloc>()..add(UpComingMoviesEvent()),
+          ),
+          BlocProvider(
+            create: (context) =>
+                di.sl<TopRatedMoviesBloc>()..add(TopRatedMoviesGetEvent()),
           ),
         ],
         child: MaterialApp.router(

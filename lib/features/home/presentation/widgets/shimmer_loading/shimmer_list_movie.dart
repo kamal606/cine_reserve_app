@@ -14,7 +14,7 @@ class ShimmerListMovie extends StatelessWidget {
       child: SizedBox(
         height: 300.h,
         child: GridView.builder(
-            physics: const BouncingScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 6,
             padding: EdgeInsets.only(left: 12.w),
             scrollDirection: Axis.horizontal,

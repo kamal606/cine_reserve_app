@@ -18,7 +18,7 @@ class CustomTextFormField extends StatelessWidget {
           filled: true,
           prefixIconConstraints: const BoxConstraints(),
           hintText: hintText,
-          hintStyle: AppFonts.regular_14
+          hintStyle: AppFonts.regular_12
               .copyWith(color: AppColor.lavenderMist.withAlpha(153)),
           prefixIcon: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.w),

@@ -1,10 +1,20 @@
 import 'package:cine_reserve_app/core/utils/api_service.dart';
 import 'package:cine_reserve_app/features/home/data/data_source/remote_data_source/new_in_cinema_remote_data_source.dart';
+import 'package:cine_reserve_app/features/home/data/data_source/remote_data_source/top_rated_movies_remote.dart';
+import 'package:cine_reserve_app/features/home/data/data_source/remote_data_source/up_coming_movies_remote.dart';
 import 'package:cine_reserve_app/features/home/data/repository_implements/new_in_cinemas_repo_impl.dart';
+import 'package:cine_reserve_app/features/home/data/repository_implements/top_rated_repo_impl.dart';
+import 'package:cine_reserve_app/features/home/data/repository_implements/up_coming_repo_impl.dart';
 import 'package:cine_reserve_app/features/home/domain/repository/new_in_cinemas_repo.dart';
+import 'package:cine_reserve_app/features/home/domain/repository/top_rated_repo.dart';
+import 'package:cine_reserve_app/features/home/domain/repository/up_coming_repo.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/now_in_cinemas_use_case.dart';
+import 'package:cine_reserve_app/features/home/domain/use_cases/to_rated_movies_use_case.dart';
+import 'package:cine_reserve_app/features/home/domain/use_cases/up_coming_movies_use_case.dart';
 import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/top_rated/top_rated_movies_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/bloc/up_coming/up_coming_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -16,16 +26,32 @@ Future<void> initGetIt() async {
   sl.registerFactory(() => NowInCinemasBloc(
       checkInternetBloc: sl.call(), newInCinemasUseCase: sl.call()));
   sl.registerFactory(() => CheckInternetBloc());
+  sl.registerFactory(() => UpComingBloc(
+      checkInternetBloc: sl.call(), upComingMoviesUseCase: sl.call()));
+  sl.registerFactory(() => TopRatedMoviesBloc(
+      checkInternetBloc: sl.call(), topRatedMoviesUseCase: sl.call()));
+
   //! Data Sources
   sl.registerLazySingleton(() => NowInCinemasRemoteImpl(apiService: sl.call()));
+  sl.registerLazySingleton(
+      () => UpComingMoviesRemoteImple(apiService: sl.call()));
+  sl.registerLazySingleton(
+      () => TopRatedMoviesRemoteImple(apiService: sl.call()));
 
   //! Repository
   sl.registerLazySingleton<NowInCinemasRepo>(
       () => NowInCinemasRepoImpl(newInCinemasRemoteImpl: sl.call()));
-
+  sl.registerLazySingleton<UpComingMoviesReop>(
+      () => UpComingMoviesRepoImpl(upComingMoviesRemoteImple: sl.call()));
+  sl.registerLazySingleton<TopRatedMoviesRepo>(
+      () => TopRatedMoviesRepoImpl(topRatedMoviesRemoteImple: sl.call()));
   //! Use Cases
   sl.registerLazySingleton(
       () => NowInCinemasUseCase(nowInCinemasRepo: sl.call()));
+  sl.registerLazySingleton(
+      () => UpComingMoviesUseCase(upComingMoviesReop: sl.call()));
+  sl.registerLazySingleton(
+      () => TopRatedMoviesUseCase(topRatedMoviesRepo: sl.call()));
 
   //! Core
   sl.registerLazySingleton<ApiService>(() => ApiService(sl.call()));
