@@ -19,7 +19,7 @@ class ButtonWithTitleCarousel extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(8.r),
           child: SizedBox(
-              height: 40.h,
+              height: 50.h,
               width: 50.w,
               child: CachedNetworkImage(
                 imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",

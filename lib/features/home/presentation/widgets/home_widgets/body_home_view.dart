@@ -1,7 +1,6 @@
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
-import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_blurred_circle.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_list_movie_home.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/gridview_now_in_cinemas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'carousel_home.dart';
@@ -35,9 +34,7 @@ class HomeViewBody extends StatelessWidget {
                         SizedBox(
                           height: 20.h,
                         ),
-                        const CustomListViewNowInCinemas(
-                          titleList: kNowCinemas,
-                        ),
+                        const GridViewNowInCinemasHome(),
                         SizedBox(
                           height: 7.h,
                         ),

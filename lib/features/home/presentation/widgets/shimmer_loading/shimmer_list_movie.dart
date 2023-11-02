@@ -12,23 +12,65 @@ class ShimmerListMovie extends StatelessWidget {
       baseColor: Colors.black12,
       highlightColor: AppColor.secondry,
       child: SizedBox(
-        height: 120.h,
-        child: ListView.builder(
+        height: 300.h,
+        child: GridView.builder(
             physics: const BouncingScrollPhysics(),
-            itemCount: 4,
+            itemCount: 6,
+            padding: EdgeInsets.only(left: 12.w),
             scrollDirection: Axis.horizontal,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio: 1 / 3.7,
+            ),
             itemBuilder: (context, i) {
               return Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 12.w),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.r),
-                      child: AspectRatio(
-                        aspectRatio: 2.7 / 4,
-                        child: Container(
-                          color: AppColor.white,
-                        ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 60.h,
+                            width: 60.w,
+                            decoration: BoxDecoration(
+                              color: AppColor.white,
+                              borderRadius: BorderRadius.circular(10.r),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10.w),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 10.h,
+                                  width: 120.w,
+                                  color: AppColor.white,
+                                ),
+                                SizedBox(
+                                  height: 4.h,
+                                ),
+                                Container(
+                                  height: 10.h,
+                                  width: 90.w,
+                                  color: AppColor.white,
+                                ),
+                                SizedBox(
+                                  height: 4.h,
+                                ),
+                                Container(
+                                  height: 10.h,
+                                  width: 60.w,
+                                  color: AppColor.white,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   )

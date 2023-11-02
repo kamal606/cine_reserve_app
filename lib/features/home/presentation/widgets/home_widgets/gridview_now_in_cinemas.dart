@@ -1,4 +1,6 @@
+import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/functions/toast.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/genre_string.dart';
 import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_card_movie.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_title_list.dart';
@@ -6,26 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomListViewNowInCinemas extends StatelessWidget {
-  const CustomListViewNowInCinemas({
-    super.key,
-    required this.titleList,
-  });
-  final String titleList;
+class GridViewNowInCinemasHome extends StatelessWidget {
+  const GridViewNowInCinemasHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TitleListViewHome(
-          title: titleList,
+        const TitleListViewHome(
+          title: kNowCinemas,
         ),
         SizedBox(
-          height: 10.h,
-        ),
-        SizedBox(
-          height: 120.h,
+          height: 300.h,
           child: BlocConsumer<NowInCinemasBloc, NowInCinemasState>(
             listener: (context, state) {
               if (state is NowInCinemasFailure) {
@@ -34,30 +29,29 @@ class CustomListViewNowInCinemas extends StatelessWidget {
             },
             builder: (context, state) {
               if (state is NowInCinemasSuccess) {
-                return ListView.builder(
+                return GridView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: state.listMovie.length,
+                    padding: EdgeInsets.only(left: 12.w),
                     scrollDirection: Axis.horizontal,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1 / 3.7,
+                    ),
                     itemBuilder: (context, i) {
-                      return Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.w),
-                            child: CustomCardMovie(
-                              moviesEntity: state.listMovie[i],
-                            ),
-                          )
-                        ],
-                      );
+                      GenreString genre = GenreString();
+                      List<String?> genreString =
+                          genre.genreStringMethod(genre, state.listMovie[i]);
+                      return CustomCardMovie(
+                          genreString: genreString,
+                          moviesEntity: state.listMovie[i]);
                     });
               } else {
                 return const SizedBox();
               }
             },
           ),
-        ),
-        SizedBox(
-          height: 10.h,
         ),
       ],
     );

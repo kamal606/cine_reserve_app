@@ -12,7 +12,7 @@ class TitleListViewHome extends StatelessWidget {
       padding: EdgeInsets.only(left: 12.w),
       child: Text(
         title,
-        style: AppFonts.bold_14.copyWith(
+        style: AppFonts.bold_18.copyWith(
           color: AppColor.white.withAlpha(219),
         ),
       ),
