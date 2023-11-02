@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/genre_string.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/new_in_cinemas/new_in_cinemas_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/button_with_title_carousel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/dots_carousel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/caousel_widgets/image_carousel.dart';

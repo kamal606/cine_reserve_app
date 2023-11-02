@@ -7,6 +7,7 @@ const String kNowCinemas = "Now in Cinemas Movies";
 const String kUpComingMovies = "Up Coming Movies";
 const String kTopRatedMovies = "Top Rated Movies";
 const String kWhoops = "Whoops!";
+const String kSearchHome = "Search Home";
 const String koffline =
     "No Intenet connection found. Check your connection or try again.";
 //   links api //

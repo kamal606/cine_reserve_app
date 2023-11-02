@@ -11,10 +11,10 @@ import 'package:cine_reserve_app/features/home/domain/repository/up_coming_repo.
 import 'package:cine_reserve_app/features/home/domain/use_cases/now_in_cinemas_use_case.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/to_rated_movies_use_case.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/up_coming_movies_use_case.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/new_in_cinemas/new_in_cinemas_bloc.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/top_rated/top_rated_movies_bloc.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/up_coming/up_coming_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/new_in_cinemas/new_in_cinemas_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/top_rated/top_rated_movies_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/up_coming/up_coming_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

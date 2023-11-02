@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/to_rated_movies_use_case.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
 import 'package:equatable/equatable.dart';
 
 part 'top_rated_movies_event.dart';

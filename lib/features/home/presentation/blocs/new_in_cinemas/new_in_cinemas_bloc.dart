@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/now_in_cinemas_use_case.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
+import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

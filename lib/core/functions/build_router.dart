@@ -1,5 +1,5 @@
+import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/view/no_internet_view.dart';
-import 'package:cine_reserve_app/features/home/presentation/bloc/check_internet/check_internet_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 

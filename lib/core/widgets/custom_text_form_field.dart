@@ -5,11 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, required this.hintText});
+  const CustomTextFormField({
+    super.key,
+    required this.hintText,
+    this.onChanged,
+    this.onTap,
+    this.onTapIcon,
+    this.readOnly = false,
+  });
   final String hintText;
+  final Function(String?)? onChanged;
+  final Function()? onTap;
+  final Function()? onTapIcon;
+
+  final bool readOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: readOnly,
+      onChanged: onChanged,
+      onTap: onTap,
       style: const TextStyle(color: AppColor.lavenderMist),
       cursorColor: AppColor.lavenderMist.withAlpha(153),
       decoration: InputDecoration(
@@ -22,11 +37,14 @@ class CustomTextFormField extends StatelessWidget {
               .copyWith(color: AppColor.lavenderMist.withAlpha(153)),
           prefixIcon: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Image.asset(
-              AppIcons.search,
-              color: AppColor.lavenderMist,
-              height: 16.h,
-              width: 16.w,
+            child: InkWell(
+              onTap: onTapIcon,
+              child: Image.asset(
+                AppIcons.search,
+                color: AppColor.lavenderMist,
+                height: 16.h,
+                width: 16.w,
+              ),
             ),
           ),
           enabledBorder: OutlineInputBorder(

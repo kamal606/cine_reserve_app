@@ -15,6 +15,8 @@ class AppFonts {
   static TextStyle bold_18 = TextStyle(fontSize: 18.sp, fontFamily: popBold);
   static TextStyle bold_12 = TextStyle(fontSize: 12.sp, fontFamily: popBold);
 // regular
+  static TextStyle regular_16 =
+      TextStyle(fontSize: 16.sp, fontFamily: popRegular);
   static TextStyle regular_14 =
       TextStyle(fontSize: 14.sp, fontFamily: popRegular);
   static TextStyle regular_12 =
