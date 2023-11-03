@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cine_reserve_app/core/constant/app_assets.dart';
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/app_fonts.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
@@ -24,6 +25,12 @@ class CustomCardMovie extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",
               fit: BoxFit.fill,
+              placeholder: (context, url) => Image.asset(
+                AppAssets.loadedImage,
+                color: AppColor.white,
+                height: 30.h,
+                width: 30.w,
+              ),
               errorWidget: (context, url, error) {
                 return const Icon(Icons.error);
               },

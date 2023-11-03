@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cine_reserve_app/core/constant/app_assets.dart';
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/app_fonts.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
@@ -23,6 +24,12 @@ class ButtonWithTitleCarousel extends StatelessWidget {
               width: 50.w,
               child: CachedNetworkImage(
                 imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",
+                placeholder: (context, url) => Image.asset(
+                  AppAssets.loadedImage,
+                  color: AppColor.white,
+                  height: 25.h,
+                  width: 25.w,
+                ),
                 fit: BoxFit.fill,
               )),
         ),

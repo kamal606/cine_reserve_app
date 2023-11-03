@@ -41,11 +41,11 @@ class HomeViewBody extends StatelessWidget {
                         ),
                         const GridViewTopRatedHome(),
                         SizedBox(
-                          height: 7.h,
+                          height: 15.h,
                         ),
                         const GridViewUpComingHome(),
                         SizedBox(
-                          height: 7.h,
+                          height: 15.h,
                         ),
                         const GridViewNowInCinemasHome(),
                       ],
