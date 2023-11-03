@@ -1,20 +1,20 @@
 import 'package:equatable/equatable.dart';
 
 class MoviesEntity extends Equatable {
-  final int idMovie;
-  final bool adultMovie;
-  final String backdropPathMovie;
-  final List<dynamic> genreIdsMovie;
-  final String originalLanguageMovie;
-  final String originalTitleMovie;
-  final String overviewMovie;
-  final double popularityMovie;
-  final String posterPathMovie;
-  final String releaseDateMovie;
-  final String titleMovie;
-  final bool videoMovie;
-  final double voteAverageMovie;
-  final int voteCountMovie;
+  final int? idMovie;
+  final bool? adultMovie;
+  final String? backdropPathMovie;
+  final List<dynamic>? genreIdsMovie;
+  final String? originalLanguageMovie;
+  final String? originalTitleMovie;
+  final String? overviewMovie;
+  final double? popularityMovie;
+  final String? posterPathMovie;
+  final String? releaseDateMovie;
+  final String? titleMovie;
+  final bool? videoMovie;
+  final double? voteAverageMovie;
+  final int? voteCountMovie;
 
   const MoviesEntity(
       {required this.idMovie,

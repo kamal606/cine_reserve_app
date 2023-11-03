@@ -23,9 +23,9 @@ class GenreString {
     37: "Western",
   };
 
-  List<String?> getGenreName(List<dynamic> genreId) {
+  List<String?> getGenreName(List<dynamic>? genreId) {
     List<String?> listGenre = [];
-    for (int idNumber in genreId) {
+    for (int idNumber in genreId!) {
       listGenre.add(genreMapping[idNumber]);
     }
     return listGenre;

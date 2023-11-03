@@ -35,7 +35,7 @@ class ButtonWithTitleCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                moviesEntity.titleMovie,
+                moviesEntity.titleMovie!,
                 style: AppFonts.bold_14.copyWith(color: AppColor.white),
                 overflow: TextOverflow.ellipsis,
               ),

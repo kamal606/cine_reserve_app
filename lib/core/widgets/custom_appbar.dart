@@ -22,9 +22,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool readOnly;
   final bool isOnTapIcon;
   final bool isOnTap;
-  final Function()? onTapIcon;
+  final void Function()? onTapIcon;
 
-  final Function(String?)? onChanged;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return AppBar(

@@ -8,6 +8,7 @@ const String kUpComingMovies = "Up Coming Movies";
 const String kTopRatedMovies = "Top Rated Movies";
 const String kWhoops = "Whoops!";
 const String kSearchHome = "Search Home";
+const String kResults = "results";
 const String koffline =
     "No Intenet connection found. Check your connection or try again.";
 //   links api //
@@ -18,6 +19,7 @@ const String kBaseImage = "https://image.tmdb.org/t/p/w500/";
 const String kEndPointsNowInCinemas = "movie/now_playing";
 const String kEndPointsUpComing = "movie/upcoming";
 const String kEndPointsTopRated = "movie/top_rated";
+const String kEndPointsSearch = "search/movie?query=";
 
 // token //
 const String kToken =

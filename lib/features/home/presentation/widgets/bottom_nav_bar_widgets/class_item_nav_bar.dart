@@ -1,4 +1,4 @@
-import 'package:cine_reserve_app/core/constant/app_icons.dart';
+import 'package:cine_reserve_app/core/constant/app_assets_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemBottomNavBar {
@@ -9,10 +9,10 @@ class ItemBottomNavBar {
   }) : sizeItem = 20.h;
 
   static List<ItemBottomNavBar> listItemNavBar = [
-    ItemBottomNavBar(nameItem: AppIcons.home),
-    ItemBottomNavBar(nameItem: AppIcons.movie),
-    ItemBottomNavBar(nameItem: AppIcons.ticket),
-    ItemBottomNavBar(nameItem: AppIcons.category),
-    ItemBottomNavBar(nameItem: AppIcons.profile),
+    ItemBottomNavBar(nameItem: AppAssetsIcons.home),
+    ItemBottomNavBar(nameItem: AppAssetsIcons.movie),
+    ItemBottomNavBar(nameItem: AppAssetsIcons.ticket),
+    ItemBottomNavBar(nameItem: AppAssetsIcons.category),
+    ItemBottomNavBar(nameItem: AppAssetsIcons.profile),
   ];
 }

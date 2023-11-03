@@ -39,7 +39,7 @@ class CustomCardMovie extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width - 120.w,
                 child: Text(
-                  moviesEntity.titleMovie,
+                  moviesEntity.titleMovie!,
                   style: AppFonts.regular_14
                       .copyWith(color: AppColor.white.withAlpha(219)),
                   overflow: TextOverflow.ellipsis,

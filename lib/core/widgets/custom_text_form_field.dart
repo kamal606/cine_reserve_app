@@ -1,6 +1,6 @@
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/app_fonts.dart';
-import 'package:cine_reserve_app/core/constant/app_icons.dart';
+import 'package:cine_reserve_app/core/constant/app_assets_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     this.readOnly = false,
   });
   final String hintText;
-  final Function(String?)? onChanged;
+  final Function(String)? onChanged;
   final Function()? onTap;
   final Function()? onTapIcon;
 
@@ -40,7 +40,7 @@ class CustomTextFormField extends StatelessWidget {
             child: InkWell(
               onTap: onTapIcon,
               child: Image.asset(
-                AppIcons.search,
+                AppAssetsIcons.search,
                 color: AppColor.lavenderMist,
                 height: 16.h,
                 width: 16.w,
