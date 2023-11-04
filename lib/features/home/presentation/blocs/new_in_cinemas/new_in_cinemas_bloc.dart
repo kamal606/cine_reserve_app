@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/domain/use_cases/now_in_cinemas_use_case.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
@@ -29,7 +28,6 @@ class NowInCinemasBloc extends Bloc<NowInCinemasEvent, NowInCinemasState> {
     NowInCinemasGetEvent event,
     Emitter<NowInCinemasState> emit,
   ) async {
-    emit(NowInCinemasLoading());
     final results = await newInCinemasUseCase.getNowInCinemas();
     results.fold((l) => emit(NowInCinemasFailure(errorMessage: l.message)),
         (r) => emit(NowInCinemasSuccess(listMovie: r)));

@@ -7,4 +7,10 @@ sealed class TopRatedMoviesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class TopRatedMoviesGetEvent extends TopRatedMoviesEvent {}
+class TopRatedMoviesGetEvent extends TopRatedMoviesEvent {
+  final int page;
+
+  const TopRatedMoviesGetEvent({this.page = 1});
+  @override
+  List<Object> get props => [page];
+}

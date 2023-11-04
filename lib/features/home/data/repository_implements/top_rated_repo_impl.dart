@@ -10,9 +10,11 @@ class TopRatedMoviesRepoImpl implements TopRatedMoviesRepo {
   TopRatedMoviesRepoImpl({required this.topRatedMoviesRemoteImple});
 
   @override
-  Future<Either<Failure, List<MoviesEntity>>> fetchTopRatedMovies() async {
+  Future<Either<Failure, List<MoviesEntity>>> fetchTopRatedMovies(
+      {int page = 1}) async {
     try {
-      final movies = await topRatedMoviesRemoteImple.getTopRatedMovies();
+      final movies =
+          await topRatedMoviesRemoteImple.getTopRatedMovies(page: page);
       return right(movies);
     } catch (e) {
       if (e is DioException) {

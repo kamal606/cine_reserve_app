@@ -23,8 +23,9 @@ class _CustomCarouselHomeState extends State<CustomCarouselHome> {
   Widget build(BuildContext context) {
     return BlocBuilder<NowInCinemasBloc, NowInCinemasState>(
       builder: (context, state) {
-        List<MoviesEntity> listOfThreeMovies =
-            (state as NowInCinemasSuccess).listMovie.sublist(4, 15);
+        List<MoviesEntity> listOfThreeMovies = (state is NowInCinemasSuccess)
+            ? state.listMovie.sublist(4, 15)
+            : [];
 
         return Column(
           children: [

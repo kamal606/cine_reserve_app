@@ -17,8 +17,8 @@ const String kBaseImage = "https://image.tmdb.org/t/p/w500/";
 
 // end points //
 const String kEndPointsNowInCinemas = "movie/now_playing";
-const String kEndPointsUpComing = "movie/upcoming";
-const String kEndPointsTopRated = "movie/top_rated";
+const String kEndPointsUpComing = "movie/upcoming?page=";
+const String kEndPointsTopRated = "movie/top_rated?page=";
 const String kEndPointsSearch = "search/movie?query=";
 
 // token //

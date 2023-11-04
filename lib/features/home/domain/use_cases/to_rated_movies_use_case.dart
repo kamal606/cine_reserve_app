@@ -8,7 +8,8 @@ class TopRatedMoviesUseCase {
 
   TopRatedMoviesUseCase({required this.topRatedMoviesRepo});
 
-  Future<Either<Failure, List<MoviesEntity>>> getTopRatedMovies() async {
-    return await topRatedMoviesRepo.fetchTopRatedMovies();
+  Future<Either<Failure, List<MoviesEntity>>> getTopRatedMovies(
+      {int page = 1}) async {
+    return await topRatedMoviesRepo.fetchTopRatedMovies(page: page);
   }
 }

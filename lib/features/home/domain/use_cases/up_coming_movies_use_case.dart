@@ -8,7 +8,8 @@ class UpComingMoviesUseCase {
 
   UpComingMoviesUseCase({required this.upComingMoviesReop});
 
-  Future<Either<Failure, List<MoviesEntity>>> getUpComingMovies() async {
-    return await upComingMoviesReop.fetchUpComingMovies();
+  Future<Either<Failure, List<MoviesEntity>>> getUpComingMovies(
+      {int page = 1}) async {
+    return await upComingMoviesReop.fetchUpComingMovies(page: page);
   }
 }

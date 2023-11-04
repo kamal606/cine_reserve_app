@@ -17,7 +17,7 @@ class NowInCinemasRemoteImpl implements NowInCinemasRemote {
 
     List<MoviesModel> listMovies = [];
 
-    for (var movie in data["results"]) {
+    for (var movie in data[kResults]) {
       listMovies.add(MoviesModel.fromJson(movie));
     }
     return listMovies;

@@ -5,6 +5,7 @@ import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_load
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_list_movie.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_row_carousel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_title_list.dart';
+import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_title_with_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class ShimmerLoadingHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: kToolbarHeight + 75.h),
+      padding: const EdgeInsets.only(top: kToolbarHeight),
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
@@ -33,6 +34,10 @@ class ShimmerLoadingHome extends StatelessWidget {
                     const BlurredCircle(),
                     Column(
                       children: [
+                        const ShimmerTitleWithTextField(),
+                        SizedBox(
+                          height: 7.h,
+                        ),
                         const ShimmerCarusel(),
                         SizedBox(
                           height: 5.h,

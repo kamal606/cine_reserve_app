@@ -10,9 +10,11 @@ class UpComingMoviesRepoImpl implements UpComingMoviesReop {
   UpComingMoviesRepoImpl({required this.upComingMoviesRemoteImple});
 
   @override
-  Future<Either<Failure, List<MoviesEntity>>> fetchUpComingMovies() async {
+  Future<Either<Failure, List<MoviesEntity>>> fetchUpComingMovies(
+      {int page = 1}) async {
     try {
-      final movies = await upComingMoviesRemoteImple.getUpComingMovies();
+      final movies =
+          await upComingMoviesRemoteImple.getUpComingMovies(page: page);
       return right(movies);
     } catch (e) {
       if (e is DioException) {

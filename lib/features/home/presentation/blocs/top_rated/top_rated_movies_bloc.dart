@@ -21,7 +21,7 @@ class TopRatedMoviesBloc
     // stream to listen internet
     streamSubscription = checkInternetBloc.stream.listen((state) {
       if (state is OnlineState) {
-        add(TopRatedMoviesGetEvent());
+        add(const TopRatedMoviesGetEvent());
       }
     });
     on<TopRatedMoviesGetEvent>(_onTopRatedMoviesGetEvent);
@@ -31,8 +31,9 @@ class TopRatedMoviesBloc
     TopRatedMoviesGetEvent event,
     Emitter<TopRatedMoviesState> emit,
   ) async {
-    emit(TopRatedMoviesStateLoading());
-    final movies = await topRatedMoviesUseCase.getTopRatedMovies();
+    final movies =
+        await topRatedMoviesUseCase.getTopRatedMovies(page: event.page);
+
     movies.fold(
       (l) => emit(TopRatedMoviesStateFailure(errorMessage: l.message)),
       (r) => emit(TopRatedMoviesStateSuccess(listMovie: r)),

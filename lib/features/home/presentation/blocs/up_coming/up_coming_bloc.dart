@@ -20,7 +20,7 @@ class UpComingBloc extends Bloc<UpComingEvent, UpComingState> {
     // stream to listen internet
     streamSubscription = checkInternetBloc.stream.listen((state) {
       if (state is OnlineState) {
-        add(UpComingMoviesEvent());
+        add(const UpComingMoviesEvent());
       }
     });
     on<UpComingMoviesEvent>(_onUpComingMoviesEvent);
@@ -32,7 +32,8 @@ class UpComingBloc extends Bloc<UpComingEvent, UpComingState> {
     Emitter<UpComingState> emit,
   ) async {
     emit(UpComingStateLoading());
-    final movies = await upComingMoviesUseCase.getUpComingMovies();
+    final movies =
+        await upComingMoviesUseCase.getUpComingMovies(page: event.page);
     movies.fold(
       (l) => emit(UpComingStateFailure(errorMessage: l.message)),
       (r) => emit(UpComingStateSuccess(listMovie: r)),
