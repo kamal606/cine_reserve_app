@@ -7,13 +7,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
-    required this.hintText,
+    this.hintText,
     this.onChanged,
     this.onTap,
     this.onTapIcon,
     this.readOnly = false,
   });
-  final String hintText;
+  final String? hintText;
   final Function(String)? onChanged;
   final Function()? onTap;
   final Function()? onTapIcon;

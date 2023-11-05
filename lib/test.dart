@@ -1,97 +1,57 @@
 // import 'package:cine_reserve_app/core/constant/app_color.dart';
+// import 'package:cine_reserve_app/core/constant/app_linear.dart';
 // import 'package:flutter/material.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key}) : super(key: key);
-
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _currentIndex = 0;
-//   bool rightIconButton = true;
-//   bool leftIconButton = true;
-//   bool centerIconButton = true;
+// class MyWidget extends StatelessWidget {
+//   const MyWidget({
+//     super.key,
+//   });
 
 //   @override
 //   Widget build(BuildContext context) {
-//     FloatingActionButtonLocation fabLocation;
-
-//     if (_currentIndex == 0) {
-//       fabLocation = FloatingActionButtonLocation.startDocked;
-//       rightIconButton = true;
-//       leftIconButton = false;
-//       centerIconButton = true;
-//     } else if (_currentIndex == 1) {
-//       fabLocation = FloatingActionButtonLocation.centerDocked;
-//       rightIconButton = true;
-//       leftIconButton = true;
-//       centerIconButton = false;
-//     } else {
-//       fabLocation = FloatingActionButtonLocation.endDocked;
-//       rightIconButton = false;
-//       leftIconButton = true;
-//       centerIconButton = true;
-//     }
-
 //     return Scaffold(
 //       appBar: AppBar(
-//         title: const Text('Bottom Navigation Bar Example'),
+//         title: const Text('Container Layout'),
 //       ),
-//       body: Center(
-//         child: Text('Page ${_currentIndex + 1}'),
-//       ),
-//       floatingActionButton: Container(
-//         decoration: const BoxDecoration(
-//           shape: BoxShape.circle,
-//           color: Colors.blue,
+//       body: SizedBox(
+//         height: 150.h,
+//         width: MediaQuery.of(context).size.width,
+//         child: const Stack(
+//           children: [
+//             CustomBoxChooseDay(alignment: Alignment.bottomLeft),
+//             CustomBoxChooseDay(alignment: Alignment(-0.5, 0.3)),
+//             CustomBoxChooseDay(alignment: Alignment(0.5, 0.3)),
+//             CustomBoxChooseDay(alignment: Alignment(0, -0.3)),
+//             CustomBoxChooseDay(alignment: Alignment.bottomRight),
+//           ],
 //         ),
-//         child: FloatingActionButton(
-//           onPressed: () {},
-//           elevation: 0.0,
-//           child: const Icon(Icons.home),
-//         ),
 //       ),
-//       floatingActionButtonLocation: fabLocation,
-//       bottomNavigationBar: BottomAppBar(
-//         color: Colors.blue, // Change to your desired color
-//         shape: const CircularNotchedRectangle(),
-//         child: Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: 25),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//             rightIconButton?  IconButton(
-//                 icon: const Icon(Icons.home),
-//                 onPressed: () {
-//                   setState(() {
-//                     _currentIndex = 0;
-//                   });
-//                 },
-//               ),
-//               centerIconButton
-//                   ? IconButton(
-//                       icon: const Icon(Icons.home),
-//                       onPressed: () {
-//                         setState(() {
-//                           _currentIndex = 1;
-//                         });
-//                       },
-//                     )
-//                   : const SizedBox(),
-//               rightIconButton
-//                   ? IconButton(
-//                       icon: const Icon(Icons.category),
-//                       onPressed: () {
-//                         setState(() {
-//                           _currentIndex = 2;
-//                         });
-//                       },
-//                     )
-//                   : const SizedBox(),
-//             ],
-//           ),
+//     );
+//   }
+// }
+
+// class CustomBoxChooseDay extends StatelessWidget {
+//   const CustomBoxChooseDay({super.key, required this.alignment});
+//   final AlignmentGeometry alignment;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Align(
+//       alignment: alignment,
+//       child: FractionallySizedBox(
+//         widthFactor: 65.w / MediaQuery.of(context).size.width,
+//         heightFactor: 100.h / 150.h,
+//         child: Container(
+//           decoration: BoxDecoration(
+//               gradient: AppLinear.linearReservation,
+//               borderRadius: BorderRadius.circular(12.r),
+//               boxShadow: const [
+//                 BoxShadow(
+//                   color: AppColor.lightBlue,
+//                   offset: Offset(-1, -1),
+//                 )
+//               ]),
 //         ),
 //       ),
 //     );

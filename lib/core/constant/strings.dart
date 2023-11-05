@@ -1,4 +1,8 @@
 const String kchooseMovie = "Choose Movie";
+const String kTitleMovie = "Title Movie :";
+const String kReleasedate = "Release Date";
+const String kGenre = "Genre";
+const String kTitleAppBarReservation = "Select Date and Time";
 const String kSearch = "Search";
 const String kBold = "Poppins-Bold";
 const String kRegular = "Poppins-Regular";

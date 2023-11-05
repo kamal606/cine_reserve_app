@@ -17,4 +17,20 @@ abstract class AppLinear {
         AppColor.tan,
         AppColor.coralRed,
       ]);
+  static LinearGradient linearConrainer = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        AppColor.secondry.withOpacity(0.1),
+        AppColor.secondry,
+        AppColor.secondry,
+        AppColor.secondry,
+      ]);
+  static LinearGradient linearReservation = const LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        AppColor.primary,
+        AppColor.button,
+      ]);
 }

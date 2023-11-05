@@ -5,7 +5,9 @@ import 'package:cine_reserve_app/features/home/presentation/view/home_view.dart'
 import 'package:cine_reserve_app/features/home/presentation/view/search_home_view.dart';
 import 'package:cine_reserve_app/features/home/presentation/view/ticket_view.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/body_shimmer_loading_home.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/view/reservation_view.dart';
 import 'package:cine_reserve_app/features/splash/presentation/view/splash_view.dart';
+import 'package:cine_reserve_app/test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,11 +16,12 @@ abstract class AppRouter {
   static const String searchView = "/SearchView";
   static const String ticketView = "/TicketView";
   static const String categoryView = "/CategoryhView";
+  static const String reservationView = "/ReservationView";
 
   static GoRouter goRoute = GoRouter(routes: [
     buildRouter(
       path: "/",
-      builder: (context, state) => const SplashView(),
+      builder: (context, state) => const ReservationView(),
     ),
     buildRouter(
       path: homeView,
@@ -45,5 +48,9 @@ abstract class AppRouter {
       path: categoryView,
       builder: (context, state) => const CategoryView(),
     ),
+    // buildRouter(
+    //   path: reservationView,
+    //   builder: (context, state) => const ReservationView(),
+    // ),
   ]);
 }
