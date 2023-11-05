@@ -33,6 +33,8 @@ class AppFonts {
       TextStyle(fontSize: 14.sp, fontFamily: kSemiBold);
   static TextStyle semiBold_16 =
       TextStyle(fontSize: 16.sp, fontFamily: kSemiBold);
+  static TextStyle semiBold_18 =
+      TextStyle(fontSize: 18.sp, fontFamily: kSemiBold);
   static TextStyle semiBold_20 =
       TextStyle(fontSize: 20.sp, fontFamily: kSemiBold);
 }

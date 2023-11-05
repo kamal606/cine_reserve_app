@@ -8,7 +8,7 @@ class CustomListChooseDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
+      height: 300.h,
       width: MediaQuery.of(context).size.width,
       child: const Stack(
         children: [

@@ -3,10 +3,12 @@ import 'package:cine_reserve_app/core/constant/app_assets.dart';
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/app_fonts.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
+import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/core/widgets/custom_elvaited_button.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ButtonWithTitleCarousel extends StatelessWidget {
   const ButtonWithTitleCarousel(
@@ -57,9 +59,15 @@ class ButtonWithTitleCarousel extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(left: 8.w),
-          child: CustomElvatedButton(
-            title: "show",
-            onPressed: () {},
+          child: SizedBox(
+            height: 40.h,
+            child: CustomElvatedButton(
+              textStyle: AppFonts.semiBold_12,
+              title: kShow,
+              onPressed: () {
+                context.push(AppRouter.reservationView);
+              },
+            ),
           ),
         )
       ],

@@ -17,10 +17,10 @@ class CustomIconBack extends StatelessWidget {
         color: AppColor.white.withOpacity(0.3),
       ),
       child: IconButton(
-        splashColor: AppColor.primary,
-        highlightColor: AppColor.primary,
+        splashColor: AppColor.secondry,
+        highlightColor: AppColor.secondry,
         onPressed: () {
-          context.canPop();
+          context.pop();
         },
         icon: Icon(
           AppIcon.arrowLeftUp,

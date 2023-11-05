@@ -1,8 +1,10 @@
+import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/genre_string.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_card_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomGridViewNowInCinemas extends StatelessWidget {
   const CustomGridViewNowInCinemas({
@@ -29,8 +31,13 @@ class CustomGridViewNowInCinemas extends StatelessWidget {
           GenreString genre = GenreString();
           List<String?> genreString =
               genre.genreStringMethod(genre, listMovies[i]);
-          return CustomCardMovie(
-              genreString: genreString, moviesEntity: listMovies[i]);
+          return InkWell(
+            onTap: () {
+              context.push(AppRouter.reservationView);
+            },
+            child: CustomCardMovie(
+                genreString: genreString, moviesEntity: listMovies[i]),
+          );
         });
   }
 }

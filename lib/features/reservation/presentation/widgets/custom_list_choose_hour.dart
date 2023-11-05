@@ -8,15 +8,15 @@ class CustomListChooseHour extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140.h,
+      height: 180.h,
       width: MediaQuery.of(context).size.width,
       child: const Stack(
         children: [
-          CustomBoxChooseHour(alignment: Alignment(1, 0.1)),
-          CustomBoxChooseHour(alignment: Alignment(-0.5, -0.4)),
-          CustomBoxChooseHour(alignment: Alignment(0, -0.9)),
-          CustomBoxChooseHour(alignment: Alignment(0.5, -0.4)),
-          CustomBoxChooseHour(alignment: Alignment(-1, 0.1)),
+          CustomBoxChooseHour(alignment: Alignment(1, -0.2)),
+          CustomBoxChooseHour(alignment: Alignment(-0.5, -0.7)),
+          CustomBoxChooseHour(alignment: Alignment(0, -1.1)),
+          CustomBoxChooseHour(alignment: Alignment(0.5, -0.7)),
+          CustomBoxChooseHour(alignment: Alignment(-1, -0.2)),
         ],
       ),
     );

@@ -16,7 +16,7 @@ class CustomBoxChooseHour extends StatelessWidget {
       alignment: alignment,
       child: FractionallySizedBox(
         widthFactor: 65.w / MediaQuery.of(context).size.width,
-        heightFactor: 40.h / 150.h,
+        heightFactor: 35.h / 150.h,
         child: Container(
           decoration: BoxDecoration(
               gradient: AppLinear.linearReservation,
