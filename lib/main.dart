@@ -32,7 +32,7 @@ class CineReserveApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) =>
-                di.sl<NowInCinemasBloc>()..add(NowInCinemasGetEvent()),
+                di.sl<NowInCinemasBloc>()..add(const NowInCinemasGetEvent()),
           ),
           BlocProvider(
             create: (context) => di.sl<CheckInternetBloc>(),

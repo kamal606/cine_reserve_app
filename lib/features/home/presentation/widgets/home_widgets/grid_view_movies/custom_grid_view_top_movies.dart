@@ -34,7 +34,7 @@ class CustomGridViewTopRated extends StatelessWidget {
               genre.genreStringMethod(genre, listPagination[i]);
           return InkWell(
             onTap: () {
-              context.push(AppRouter.reservationView);
+              context.push(AppRouter.reservationView, extra: listPagination[i]);
             },
             child: CustomCardMovie(
                 genreString: genreString, moviesEntity: listPagination[i]),

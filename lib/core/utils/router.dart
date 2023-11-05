@@ -1,4 +1,5 @@
 import 'package:cine_reserve_app/core/functions/build_router.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/new_in_cinemas/new_in_cinemas_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/view/category_view.dart';
 import 'package:cine_reserve_app/features/home/presentation/view/home_view.dart';
@@ -49,7 +50,8 @@ abstract class AppRouter {
     ),
     buildRouter(
       path: reservationView,
-      builder: (context, state) => const ReservationView(),
+      builder: (context, state) =>
+          ReservationView(moviesEntity: state.extra as MoviesEntity),
     ),
   ]);
 }

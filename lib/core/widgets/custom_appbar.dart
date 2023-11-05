@@ -19,6 +19,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onTapIcon,
     this.onChanged,
     this.isBottom = true,
+    this.titleColor,
   });
   final String title;
   final String? hintText;
@@ -28,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isBottom;
   final bool isLeading;
   final void Function()? onTapIcon;
-
+  final Color? titleColor;
   final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       elevation: 0,
       backgroundColor: Colors.transparent,
-      titleTextStyle:
-          AppFonts.bold_20.copyWith(color: AppColor.white.withAlpha(219)),
+      titleTextStyle: AppFonts.bold_20
+          .copyWith(color: titleColor ?? AppColor.white.withAlpha(219)),
       centerTitle: true,
 
       //! title appbar

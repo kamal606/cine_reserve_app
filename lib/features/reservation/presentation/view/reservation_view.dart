@@ -1,21 +1,22 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/body_reservation_view.dart';
 import 'package:flutter/material.dart';
 
 class ReservationView extends StatelessWidget {
-  const ReservationView({super.key});
-
+  const ReservationView({super.key, required this.moviesEntity});
+  final MoviesEntity moviesEntity;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: kTitleAppBarReservation,
         isBottom: false,
         isLeading: true,
       ),
-      body: BodyReservationView(),
+      body: BodyReservationView(moviesEntity: moviesEntity),
     );
   }
 }

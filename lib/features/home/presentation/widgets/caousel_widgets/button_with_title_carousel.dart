@@ -65,7 +65,7 @@ class ButtonWithTitleCarousel extends StatelessWidget {
               textStyle: AppFonts.semiBold_12,
               title: kShow,
               onPressed: () {
-                context.push(AppRouter.reservationView);
+                context.push(AppRouter.reservationView, extra: moviesEntity);
               },
             ),
           ),

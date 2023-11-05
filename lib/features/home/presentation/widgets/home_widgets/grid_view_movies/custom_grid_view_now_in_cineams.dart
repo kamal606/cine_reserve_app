@@ -33,7 +33,7 @@ class CustomGridViewNowInCinemas extends StatelessWidget {
               genre.genreStringMethod(genre, listMovies[i]);
           return InkWell(
             onTap: () {
-              context.push(AppRouter.reservationView);
+              context.push(AppRouter.reservationView, extra: listMovies[i]);
             },
             child: CustomCardMovie(
                 genreString: genreString, moviesEntity: listMovies[i]),

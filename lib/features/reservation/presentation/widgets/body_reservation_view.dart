@@ -1,4 +1,5 @@
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/section_image.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/section_listview_reservation.dart';
 
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BodyReservationView extends StatelessWidget {
-  const BodyReservationView({super.key});
-
+  const BodyReservationView({super.key, required this.moviesEntity});
+  final MoviesEntity moviesEntity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,9 +20,9 @@ class BodyReservationView extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          const Column(
+          Column(
             children: [
-              SectionImageReversation(),
+              SectionImageReversation(moviesEntity: moviesEntity),
             ],
           ),
           Container(
@@ -29,7 +30,7 @@ class BodyReservationView extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 1.6,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(gradient: AppLinear.linearConrainer),
-            child: const SectionListViewReservation(),
+            child: SectionListViewReservation(moviesEntity: moviesEntity),
           ),
         ],
       ),
