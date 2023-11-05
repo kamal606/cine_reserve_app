@@ -1,6 +1,5 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/functions/toast.dart';
-import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/top_rated/top_rated_movies_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_grid_view_top_movies.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_title_list.dart';
@@ -18,11 +17,14 @@ class GridViewTopRatedBloc extends StatefulWidget {
 class _GridViewTopRatedBlocState extends State<GridViewTopRatedBloc> {
   late final ScrollController _scrollController;
   int nextPage = 2;
-  bool isLoding = false;
+
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollController.addListener(_onScroll);
+    setState(() {
+      _scrollController.addListener(_onScroll);
+    });
+
     super.initState();
   }
 
@@ -45,7 +47,6 @@ class _GridViewTopRatedBlocState extends State<GridViewTopRatedBloc> {
     super.dispose();
   }
 
-  List<MoviesEntity> listPagination = [];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,15 +62,15 @@ class _GridViewTopRatedBlocState extends State<GridViewTopRatedBloc> {
               if (state is TopRatedMoviesStateFailure) {
                 toast(message: state.errorMessage);
               }
-              if (state is TopRatedMoviesStateSuccess) {
-                listPagination.addAll(state.listMovie);
+              if (state is TopRatedMoviesStateFailurePagination) {
+                toast(message: state.errorMessage);
               }
             },
             builder: (context, state) {
               if (state is TopRatedMoviesStateSuccess) {
                 return CustomGridViewTopRated(
                     scrollController: _scrollController,
-                    listPagination: listPagination);
+                    listPagination: state.listMovie);
               } else {
                 return const SizedBox();
               }

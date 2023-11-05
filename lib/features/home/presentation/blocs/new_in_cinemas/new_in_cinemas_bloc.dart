@@ -12,13 +12,14 @@ class NowInCinemasBloc extends Bloc<NowInCinemasEvent, NowInCinemasState> {
   final NowInCinemasUseCase newInCinemasUseCase;
   StreamSubscription<CheckInternetState>? streamSubscription;
   final CheckInternetBloc checkInternetBloc;
+  List<MoviesEntity> allMovies = [];
   NowInCinemasBloc(
       {required this.newInCinemasUseCase, required this.checkInternetBloc})
       : super(NowInCinemasLoading()) {
     // stream to listen internet
     streamSubscription = checkInternetBloc.stream.listen((state) {
       if (state is OnlineState) {
-        add(NowInCinemasGetEvent());
+        add(const NowInCinemasGetEvent());
       }
     });
     on<NowInCinemasGetEvent>(_onNewInCinemasGetEvent);
@@ -28,9 +29,17 @@ class NowInCinemasBloc extends Bloc<NowInCinemasEvent, NowInCinemasState> {
     NowInCinemasGetEvent event,
     Emitter<NowInCinemasState> emit,
   ) async {
-    final results = await newInCinemasUseCase.getNowInCinemas();
-    results.fold((l) => emit(NowInCinemasFailure(errorMessage: l.message)),
-        (r) => emit(NowInCinemasSuccess(listMovie: r)));
+    final results = await newInCinemasUseCase.getNowInCinemas(page: event.page);
+    results.fold((l) {
+      if (event.page == 1) {
+        return emit(NowInCinemasFailure(errorMessage: l.message));
+      } else {
+        return emit(NowInCinemasFailurePagination(errorMessage: l.message));
+      }
+    }, (r) {
+      allMovies.addAll(r);
+      return emit(NowInCinemasSuccess(listMovie: List.from(allMovies)));
+    });
   }
 
   @override

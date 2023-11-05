@@ -24,3 +24,11 @@ final class NowInCinemasFailure extends NowInCinemasState {
   @override
   List<Object> get props => [errorMessage];
 }
+
+final class NowInCinemasFailurePagination extends NowInCinemasState {
+  final String errorMessage;
+
+  const NowInCinemasFailurePagination({required this.errorMessage});
+  @override
+  List<Object> get props => [errorMessage];
+}

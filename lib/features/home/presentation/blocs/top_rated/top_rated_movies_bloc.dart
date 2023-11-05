@@ -14,7 +14,7 @@ class TopRatedMoviesBloc
   final TopRatedMoviesUseCase topRatedMoviesUseCase;
   StreamSubscription<CheckInternetState>? streamSubscription;
   final CheckInternetBloc checkInternetBloc;
-
+  List<MoviesEntity> allMovies = [];
   TopRatedMoviesBloc(
       {required this.checkInternetBloc, required this.topRatedMoviesUseCase})
       : super(TopRatedMoviesStateLoading()) {
@@ -34,10 +34,19 @@ class TopRatedMoviesBloc
     final movies =
         await topRatedMoviesUseCase.getTopRatedMovies(page: event.page);
 
-    movies.fold(
-      (l) => emit(TopRatedMoviesStateFailure(errorMessage: l.message)),
-      (r) => emit(TopRatedMoviesStateSuccess(listMovie: r)),
-    );
+    movies.fold((l) {
+      {
+        if (event.page == 1) {
+          return emit(TopRatedMoviesStateFailure(errorMessage: l.message));
+        } else {
+          return emit(
+              TopRatedMoviesStateFailurePagination(errorMessage: l.message));
+        }
+      }
+    }, (r) {
+      allMovies.addAll(r);
+      return emit(TopRatedMoviesStateSuccess(listMovie: List.from(allMovies)));
+    });
   }
 
   @override

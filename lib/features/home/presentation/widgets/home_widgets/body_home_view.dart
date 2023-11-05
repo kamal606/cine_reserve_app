@@ -48,6 +48,9 @@ class HomeViewBody extends StatelessWidget {
                           height: 15.h,
                         ),
                         const GridViewNowInCinemasBloc(),
+                        SizedBox(
+                          height: 25.h,
+                        ),
                       ],
                     )
                   ],

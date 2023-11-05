@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 void systemChrome() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    systemNavigationBarColor: Color.fromARGB(255, 2, 68, 109),
+    systemNavigationBarColor: Color.fromARGB(255, 2, 69, 110),
   ));
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -6,8 +6,8 @@ abstract class AppLinear {
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        AppColor.primary,
         AppColor.secondry,
+        AppColor.primary,
       ]);
 
   static LinearGradient linearButton = const LinearGradient(

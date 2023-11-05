@@ -8,7 +8,8 @@ class NowInCinemasUseCase {
 
   NowInCinemasUseCase({required this.nowInCinemasRepo});
 
-  Future<Either<Failure, List<MoviesEntity>>> getNowInCinemas() async {
-    return await nowInCinemasRepo.fetchNowInCinemas();
+  Future<Either<Failure, List<MoviesEntity>>> getNowInCinemas(
+      {int page = 1}) async {
+    return await nowInCinemasRepo.fetchNowInCinemas(page: page);
   }
 }

@@ -7,4 +7,10 @@ sealed class NowInCinemasEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class NowInCinemasGetEvent extends NowInCinemasEvent {}
+class NowInCinemasGetEvent extends NowInCinemasEvent {
+  final int page;
+
+  const NowInCinemasGetEvent({this.page = 1});
+  @override
+  List<Object> get props => [page];
+}

@@ -8,13 +8,15 @@ class CustomGridViewNowInCinemas extends StatelessWidget {
   const CustomGridViewNowInCinemas({
     super.key,
     required this.listMovies,
+    required this.scrollController,
   });
-
+  final ScrollController scrollController;
   final List<MoviesEntity> listMovies;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+        controller: scrollController,
         physics: const BouncingScrollPhysics(),
         itemCount: listMovies.length,
         padding: EdgeInsets.only(left: 12.w),

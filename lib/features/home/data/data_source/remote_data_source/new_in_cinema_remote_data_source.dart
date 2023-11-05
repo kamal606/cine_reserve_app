@@ -3,7 +3,7 @@ import 'package:cine_reserve_app/core/utils/api_service.dart';
 import 'package:cine_reserve_app/features/home/data/models/movie_model.dart';
 
 abstract class NowInCinemasRemote {
-  Future<List<MoviesModel>> getNowInCinemas();
+  Future<List<MoviesModel>> getNowInCinemas({int page = 1});
 }
 
 class NowInCinemasRemoteImpl implements NowInCinemasRemote {
@@ -11,9 +11,9 @@ class NowInCinemasRemoteImpl implements NowInCinemasRemote {
   NowInCinemasRemoteImpl({required this.apiService});
 
   @override
-  Future<List<MoviesModel>> getNowInCinemas() async {
+  Future<List<MoviesModel>> getNowInCinemas({int page = 1}) async {
     Map<String, dynamic> data =
-        await apiService.get(endPoint: kEndPointsNowInCinemas);
+        await apiService.get(endPoint: "$kEndPointsNowInCinemas$page");
 
     List<MoviesModel> listMovies = [];
 

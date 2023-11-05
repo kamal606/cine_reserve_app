@@ -10,9 +10,10 @@ class NowInCinemasRepoImpl implements NowInCinemasRepo {
 
   NowInCinemasRepoImpl({required this.newInCinemasRemoteImpl});
   @override
-  Future<Either<Failure, List<MoviesEntity>>> fetchNowInCinemas() async {
+  Future<Either<Failure, List<MoviesEntity>>> fetchNowInCinemas(
+      {int page = 1}) async {
     try {
-      final data = await newInCinemasRemoteImpl.getNowInCinemas();
+      final data = await newInCinemasRemoteImpl.getNowInCinemas(page: page);
       return right(data);
     } catch (e) {
       if (e is DioException) {

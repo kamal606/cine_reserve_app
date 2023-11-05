@@ -1,6 +1,6 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/functions/toast.dart';
-import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
+
 import 'package:cine_reserve_app/features/home/presentation/blocs/up_coming/up_coming_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_grid_view_up_coming.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/custom_title_list.dart';
@@ -27,7 +27,7 @@ class _GridViewUpComingBlocState extends State<GridViewUpComingBloc> {
   }
 
   void _onScroll() {
-    var currentPosition = _scrollController.position.pixels;
+    var currentPosition = _scrollController.offset;
     var maxScrollGridView = _scrollController.position.maxScrollExtent;
 
     if (currentPosition >= 0.7 * maxScrollGridView) {
@@ -45,7 +45,6 @@ class _GridViewUpComingBlocState extends State<GridViewUpComingBloc> {
     super.dispose();
   }
 
-  List<MoviesEntity> listPagination = [];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,15 +60,16 @@ class _GridViewUpComingBlocState extends State<GridViewUpComingBloc> {
               if (state is UpComingStateFailure) {
                 toast(message: state.errorMessage);
               }
-              if (state is UpComingStateSuccess) {
-                listPagination.addAll(state.listMovie);
+              if (state is UpComingStateFailurePagination) {
+                toast(message: state.errorMessage);
               }
             },
             builder: (context, state) {
               if (state is UpComingStateSuccess) {
                 return CustomGridViewUpComing(
-                    scrollController: _scrollController,
-                    listPagination: listPagination);
+                  scrollController: _scrollController,
+                  listPagination: state.listMovies,
+                );
               } else {
                 return const SizedBox();
               }

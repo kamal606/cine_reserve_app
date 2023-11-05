@@ -13,7 +13,7 @@ class UpComingBloc extends Bloc<UpComingEvent, UpComingState> {
   final UpComingMoviesUseCase upComingMoviesUseCase;
   StreamSubscription<CheckInternetState>? streamSubscription;
   final CheckInternetBloc checkInternetBloc;
-
+  List<MoviesEntity> allMovies = [];
   UpComingBloc(
       {required this.upComingMoviesUseCase, required this.checkInternetBloc})
       : super(UpComingStateLoading()) {
@@ -31,12 +31,25 @@ class UpComingBloc extends Bloc<UpComingEvent, UpComingState> {
     UpComingMoviesEvent event,
     Emitter<UpComingState> emit,
   ) async {
-    emit(UpComingStateLoading());
     final movies =
         await upComingMoviesUseCase.getUpComingMovies(page: event.page);
     movies.fold(
-      (l) => emit(UpComingStateFailure(errorMessage: l.message)),
-      (r) => emit(UpComingStateSuccess(listMovie: r)),
+      (l) {
+        {
+          {
+            if (event.page == 1) {
+              return emit(UpComingStateFailure(errorMessage: l.message));
+            } else {
+              return emit(
+                  UpComingStateFailurePagination(errorMessage: l.message));
+            }
+          }
+        }
+      },
+      (r) {
+        allMovies.addAll(r);
+        return emit(UpComingStateSuccess(listMovies: List.from(allMovies)));
+      },
     );
   }
 

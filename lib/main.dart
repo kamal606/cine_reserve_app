@@ -39,11 +39,11 @@ class CineReserveApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) =>
-                di.sl<UpComingBloc>()..add(UpComingMoviesEvent()),
+                di.sl<UpComingBloc>()..add(const UpComingMoviesEvent()),
           ),
           BlocProvider(
-            create: (context) =>
-                di.sl<TopRatedMoviesBloc>()..add(TopRatedMoviesGetEvent()),
+            create: (context) => di.sl<TopRatedMoviesBloc>()
+              ..add(const TopRatedMoviesGetEvent()),
           ),
           BlocProvider(
             create: (context) => di.sl<SearchHomeBloc>(),

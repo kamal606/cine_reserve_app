@@ -16,7 +16,7 @@ const String kBaseUrl = "https://api.themoviedb.org/3/";
 const String kBaseImage = "https://image.tmdb.org/t/p/w500/";
 
 // end points //
-const String kEndPointsNowInCinemas = "movie/now_playing";
+const String kEndPointsNowInCinemas = "movie/now_playing?page=";
 const String kEndPointsUpComing = "movie/upcoming?page=";
 const String kEndPointsTopRated = "movie/top_rated?page=";
 const String kEndPointsSearch = "search/movie?query=";
