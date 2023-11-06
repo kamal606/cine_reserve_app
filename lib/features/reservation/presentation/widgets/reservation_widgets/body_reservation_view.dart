@@ -1,7 +1,7 @@
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
-import 'package:cine_reserve_app/features/reservation/presentation/widgets/section_image.dart';
-import 'package:cine_reserve_app/features/reservation/presentation/widgets/section_listview_reservation.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/section_image.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/section_listview_reservation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

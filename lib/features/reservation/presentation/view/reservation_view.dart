@@ -1,7 +1,7 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
-import 'package:cine_reserve_app/features/reservation/presentation/widgets/body_reservation_view.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/body_reservation_view.dart';
 import 'package:flutter/material.dart';
 
 class ReservationView extends StatelessWidget {

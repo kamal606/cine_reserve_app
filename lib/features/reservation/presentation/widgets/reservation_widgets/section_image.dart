@@ -9,12 +9,12 @@ class SectionImageReversation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height / 1.4,
+      height: MediaQuery.of(context).size.height / 1.7,
       width: MediaQuery.of(context).size.width,
       child: Hero(
         tag: moviesEntity.idMovie!,
         child: CachedNetworkImage(
-          imageUrl: "$kBaseImage${moviesEntity.posterPathMovie ?? ""}",
+          imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",
           fit: BoxFit.fill,
         ),
       ),

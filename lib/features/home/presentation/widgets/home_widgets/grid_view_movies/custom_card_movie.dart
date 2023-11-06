@@ -22,22 +22,18 @@ class CustomCardMovie extends StatelessWidget {
           child: SizedBox(
             height: 60.h,
             width: 60.w,
-            child: Hero(
-              tag: moviesEntity.idMovie!,
-              child: CachedNetworkImage(
-                imageUrl:
-                    "$kBaseImage${moviesEntity.posterPathMovie ?? "https://images.assetsdelivery.com/compings_v2/yehorlisnyi/yehorlisnyi2104/yehorlisnyi210400016.jpg"}",
-                fit: BoxFit.fill,
-                placeholder: (context, url) => Image.asset(
-                  AppAssets.loadedImage,
-                  color: AppColor.white,
-                  height: 30.h,
-                  width: 30.w,
-                ),
-                errorWidget: (context, url, error) {
-                  return const Icon(Icons.error);
-                },
+            child: CachedNetworkImage(
+              imageUrl: "$kBaseImage${moviesEntity.posterPathMovie}",
+              fit: BoxFit.fill,
+              placeholder: (context, url) => Image.asset(
+                AppAssets.loadedImage,
+                color: AppColor.white,
+                height: 30.h,
+                width: 30.w,
               ),
+              errorWidget: (context, url, error) {
+                return const Icon(Icons.error);
+              },
             ),
           ),
         ),

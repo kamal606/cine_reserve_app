@@ -1,7 +1,7 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_elvaited_button.dart';
-import 'package:cine_reserve_app/features/reservation/presentation/widgets/custom_box_choose_day.dart';
-import 'package:cine_reserve_app/features/reservation/presentation/widgets/custom_box_choose_hour.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_day.dart';
+import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_hour.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +17,7 @@ class _SectionListChooseDayAndHourState
     extends State<SectionListChooseDayAndHour> {
   List<String> titles = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   List<String> subTitles = ["13", "14", "15", "16", "17"];
-  List<String> hour = ["16:", "17:00", "18:00", "19:00", "20:00"];
+  List<String> hour = ["16:00", "17:00", "18:00", "19:00", "20:00"];
 
   List<bool> isTapHour = List.filled(5, false);
   List<bool> isTapDayList = List.filled(5, false);
@@ -88,7 +88,7 @@ class _SectionListChooseDayAndHourState
                   handleTapHour(index);
                 },
                 alignment: Alignment(
-                  [1, -0.5, 0, 0.5, -1][index].toDouble(),
+                  [-1, -0.5, 0, 0.5, 1][index].toDouble(),
                   [-0.2, -0.7, -1.1, -0.7, -0.2][index].toDouble(),
                 ),
                 hour: hour[index],

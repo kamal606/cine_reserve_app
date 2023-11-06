@@ -11,8 +11,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+class MyImageCache extends ImageCache {
+  @override
+  void clear() {
+    print('Clearing cache!');
+    super.clear();
+  }
+}
+
+class MyWidgetsBinding extends WidgetsFlutterBinding {
+  @override
+  ImageCache createImageCache() => MyImageCache();
+}
+
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  MyWidgetsBinding();
   await di.initGetIt();
   Bloc.observer = MyBlocObserver();
   await Future.delayed(const Duration(milliseconds: 500));

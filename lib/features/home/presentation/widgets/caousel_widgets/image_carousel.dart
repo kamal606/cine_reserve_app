@@ -4,6 +4,7 @@ import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageCarousel extends StatelessWidget {
