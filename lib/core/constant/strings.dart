@@ -6,6 +6,7 @@ const String kSelectSeats = "Select Seats";
 const String kAvailable = "Available";
 const String kReserved = "Reserved";
 const String kSelected = "Selected";
+const String kConfirm = "Confirm";
 const String kShow = "Show";
 const String kBook = "Book";
 const String kShowLess = "Show Less";

@@ -33,4 +33,11 @@ abstract class AppLinear {
         AppColor.primary,
         AppColor.button,
       ]);
+  static LinearGradient withOpacity = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        AppColor.coralRed.withOpacity(0.8),
+        AppColor.tan.withOpacity(0.7),
+      ]);
 }

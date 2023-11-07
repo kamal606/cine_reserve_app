@@ -10,4 +10,5 @@ abstract class AppAssetsIcons {
   static const String search = "assets/images/icons/magnifyingglass.png";
   static const String offline = "assets/images/icons/offline-5.png";
   static const String seat = "assets/images/icons/Seat.png";
+  static const String cart = "assets/images/icons/Buy.png";
 }

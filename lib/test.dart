@@ -1,4 +1,5 @@
 // import 'package:cine_reserve_app/core/constant/app_color.dart';
+// import 'package:cine_reserve_app/features/reservation/presentation/view/select_seat_view.dart';
 // import 'package:flutter/material.dart';
 // import 'dart:math' as math;
 
@@ -10,25 +11,34 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       backgroundColor: AppColor.secondry,
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Stack(
+//       appBar: AppBar(
+//         title: const Text('Custom Paint Example'),
+//       ),
+//       body: Center(
+//         child: Container(
+//           height: 190.h,
+//           decoration: BoxDecoration(
+//             color: Colors.black.withOpacity(0.4),
+//             border: const Border(
+//               top: BorderSide(color: Colors.white),
+//             ),
+//           ),
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //             children: [
-//               CustomPaint(
-//                 size: Size(350, 100.h),
-//                 painter: MyPainter2(),
-//               ),
-//               CustomPaint(
-//                 size: Size(350, 100.h),
-//                 painter: MyPainter(),
+//               const Text("kamal"),
+//               Container(
+//                 color: Colors.black.withOpacity(0.4),
+//                 height: 120,
+//                 width: 120.w,
+//                 child: CustomPaint(
+//                   painter: CustomPainterExample(),
+//                 ),
 //               ),
 //             ],
 //           ),
-//         ],
+//         ),
 //       ),
 //     );
 //   }
 // }
-

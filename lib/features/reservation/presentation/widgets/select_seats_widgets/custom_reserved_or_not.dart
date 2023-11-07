@@ -13,7 +13,7 @@ class CustomHintReservedOrNot extends StatelessWidget {
       children: [
         CustomTitleAndCircle(
           backgroundColor: AppColor.white,
-          title: kReserved,
+          title: kAvailable,
         ),
         CustomTitleAndCircle(
           backgroundColor: AppColor.coralRed,
@@ -21,7 +21,7 @@ class CustomHintReservedOrNot extends StatelessWidget {
         ),
         CustomTitleAndCircle(
           backgroundColor: AppColor.selectSeat,
-          title: kReserved,
+          title: kSelected,
         ),
       ],
     );

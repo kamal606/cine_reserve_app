@@ -23,7 +23,7 @@ abstract class AppRouter {
   static GoRouter goRoute = GoRouter(routes: [
     buildRouter(
       path: "/",
-      builder: (context, state) => const SelectSeatsView(),
+      builder: (context, state) => const SplashView(),
     ),
     buildRouter(
       path: homeView,
@@ -55,8 +55,8 @@ abstract class AppRouter {
       builder: (context, state) =>
           ReservationView(moviesEntity: state.extra as MoviesEntity),
     ),
-    // buildRouter(
-    //     path: selectSeatsView,
-    //     builder: (context, state) => const SelectSeatsView()),
+    buildRouter(
+        path: selectSeatsView,
+        builder: (context, state) => const SelectSeatsView()),
   ]);
 }

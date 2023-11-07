@@ -1,9 +1,11 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
+import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/core/widgets/custom_elvaited_button.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_day.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_hour.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class SectionListChooseDayAndHour extends StatefulWidget {
   const SectionListChooseDayAndHour({super.key});
@@ -101,7 +103,9 @@ class _SectionListChooseDayAndHourState
             width: double.infinity,
             child: CustomElvatedButton(
               title: kReservation,
-              onPressed: () {},
+              onPressed: () {
+                context.push(AppRouter.selectSeatsView);
+              },
             ),
           ),
       ],
