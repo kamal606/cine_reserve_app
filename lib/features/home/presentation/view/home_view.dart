@@ -3,8 +3,8 @@ import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
 import 'package:cine_reserve_app/features/home/presentation/view/category_view.dart';
-import 'package:cine_reserve_app/features/home/presentation/view/ticket_view.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/body_home_view.dart';
+import 'package:cine_reserve_app/features/tickets/presentation/view/tickets_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -122,7 +122,7 @@ class _HomeViewState extends State<HomeView> {
   Widget currentPage(BuildContext context) {
     switch (indexIcon) {
       case IconIndex.ticket:
-        return const TicketView();
+        return const TicketsView();
       case IconIndex.home:
         return const HomeViewBody();
       case IconIndex.category:

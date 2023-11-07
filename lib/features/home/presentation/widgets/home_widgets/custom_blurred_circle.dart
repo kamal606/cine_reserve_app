@@ -15,8 +15,8 @@ class BlurredCircle extends StatelessWidget {
               painter: BlurredCirclePainter(
                   colorCircle: AppColor.coralRed.withAlpha(178)),
               child: SizedBox(
-                width: 300.w,
-                height: 250.h,
+                width: 150.w,
+                height: 300.h,
               ),
             ),
           ],

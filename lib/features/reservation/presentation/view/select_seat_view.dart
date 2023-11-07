@@ -37,7 +37,7 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
     return Scaffold(
       backgroundColor: AppColor.secondry,
       bottomNavigationBar:
-          !isBottomNavBar ? const CustomBottomSelectSeats() : null,
+          isBottomNavBar ? const CustomBottomSelectSeats() : null,
       appBar: const CustomAppBar(
         title: kSelectSeats,
         isBottom: false,
@@ -65,14 +65,14 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
                   SizedBox(
                     height: 50.h,
                   ),
-                  isBottomNavBar
+                  !isBottomNavBar
                       ? SizedBox(
                           width: double.infinity,
                           child: CustomElvatedButton(
                             title: kBook,
                             onPressed: () {
                               setState(() {
-                                isBottomNavBar = false;
+                                isBottomNavBar = true;
                               });
                             },
                           ))

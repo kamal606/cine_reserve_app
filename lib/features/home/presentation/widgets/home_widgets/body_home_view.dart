@@ -1,5 +1,4 @@
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_blurred_circle.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/bloc_top_rated.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/bloc_up_coming.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/grid_view_movies/bloc_now_in_cinemas.dart';
@@ -28,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
                 //here i put all body home above blurredCircle
                 Stack(
                   children: [
-                    const BlurredCircle(),
+                    // const BlurredCircle(),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

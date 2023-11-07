@@ -1,5 +1,4 @@
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
-import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/custom_blurred_circle.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_carusel.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_dots.dart';
 import 'package:cine_reserve_app/features/home/presentation/widgets/shimmer_loading/shimmer_list_movie.dart';
@@ -31,7 +30,7 @@ class ShimmerLoadingHome extends StatelessWidget {
                 //here i put all body home above blurredCircle
                 Stack(
                   children: [
-                    const BlurredCircle(),
+                    // const BlurredCircle(),
                     Column(
                       children: [
                         const ShimmerTitleWithTextField(),
