@@ -55,8 +55,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter_launcher_icons:
-  image_path: "assets/images/launcher/708883.png"
-  adaptive_icon_foreground: "assets/images/launcher/708883.png"
+  image_path: "assets/images/launcher/clapperboard.png"
+  adaptive_icon_foreground: "assets/images/launcher/clapperboard.png"
   adaptive_icon_background: "#ffffff"
   android: "launcher_icon"
   ios: true
