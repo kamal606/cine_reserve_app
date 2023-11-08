@@ -7,6 +7,8 @@ import 'package:cine_reserve_app/features/home/presentation/blocs/new_in_cinemas
 import 'package:cine_reserve_app/features/home/presentation/blocs/search_home/search_home_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/top_rated/top_rated_movies_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/up_coming/up_coming_bloc.dart';
+import 'package:cine_reserve_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +28,8 @@ class MyWidgetsBinding extends WidgetsFlutterBinding {
 
 Future<void> main() async {
   MyWidgetsBinding();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.initGetIt();
   Bloc.observer = MyBlocObserver();
   await Future.delayed(const Duration(milliseconds: 500));

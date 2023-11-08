@@ -31,11 +31,13 @@ dependencies:
   bloc: ^8.1.2
   cached_network_image: ^3.3.0
   carousel_slider: ^4.2.1
+  cloud_firestore: ^4.12.2
   connectivity_plus: ^5.0.1
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^5.3.3
   equatable: ^2.0.5
+  firebase_core: ^2.21.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3

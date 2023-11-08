@@ -2,7 +2,7 @@ import 'package:cine_reserve_app/core/constant/app_assets_icons.dart';
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
-import 'package:cine_reserve_app/features/home/presentation/view/category_view.dart';
+
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/body_home_view.dart';
 import 'package:cine_reserve_app/features/tickets/presentation/view/tickets_view.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,6 @@ class HomeView extends StatefulWidget {
 enum IconIndex {
   ticket,
   home,
-  category,
 }
 
 class _HomeViewState extends State<HomeView> {
@@ -32,12 +31,7 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: customFloatinActionButton(),
       floatingActionButtonLocation: _checkPositionFloatingButton(),
       bottomNavigationBar: customBottomAppBar(),
-      appBar: const CustomAppBar(
-        title: kchooseMovie,
-        hintText: kSearch,
-        readOnly: true,
-        isOnTap: true,
-      ),
+      appBar: _buildAppBar(),
       body: currentPage(context),
     );
   }
@@ -67,7 +61,7 @@ class _HomeViewState extends State<HomeView> {
 //! bottom AppBar
   BottomAppBar customBottomAppBar() {
     return BottomAppBar(
-      height: 50.h,
+      height: 55.h,
       color: AppColor.secondry,
       shape: const CircularNotchedRectangle(),
       child: Row(
@@ -80,10 +74,6 @@ class _HomeViewState extends State<HomeView> {
           _buildIcon(
             IconIndex.home,
             AppAssetsIcons.home,
-          ),
-          _buildIcon(
-            IconIndex.category,
-            AppAssetsIcons.category,
           ),
         ],
       ),
@@ -125,8 +115,6 @@ class _HomeViewState extends State<HomeView> {
         return const TicketsView();
       case IconIndex.home:
         return const HomeViewBody();
-      case IconIndex.category:
-        return const CategoryView();
     }
   }
 
@@ -137,8 +125,6 @@ class _HomeViewState extends State<HomeView> {
         return AppAssetsIcons.ticket;
       case IconIndex.home:
         return AppAssetsIcons.home;
-      case IconIndex.category:
-        return AppAssetsIcons.category;
     }
   }
 
@@ -148,9 +134,24 @@ class _HomeViewState extends State<HomeView> {
       case IconIndex.ticket:
         return FloatingActionButtonLocation.startDocked;
       case IconIndex.home:
-        return FloatingActionButtonLocation.centerDocked;
-      case IconIndex.category:
         return FloatingActionButtonLocation.endDocked;
+    }
+  }
+
+  PreferredSizeWidget _buildAppBar() {
+    switch (indexIcon) {
+      case IconIndex.ticket:
+        return const CustomAppBar(
+          title: "Mobile Tickets",
+          isBottom: false,
+        );
+      case IconIndex.home:
+        return const CustomAppBar(
+          title: kchooseMovie,
+          hintText: kSearch,
+          readOnly: true,
+          isOnTap: true,
+        );
     }
   }
 }

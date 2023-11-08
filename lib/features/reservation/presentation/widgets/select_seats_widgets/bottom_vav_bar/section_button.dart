@@ -2,8 +2,10 @@ import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/app_fonts.dart';
 import 'package:cine_reserve_app/core/constant/app_linear.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
+import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class SectionButton extends StatelessWidget {
   const SectionButton({
@@ -39,7 +41,9 @@ class SectionButton extends StatelessWidget {
               ),
               InkWell(
                 borderRadius: BorderRadius.circular(60.r),
-                onTap: () {},
+                onTap: () {
+                  context.replace(AppRouter.homeView);
+                },
                 child: Container(
                   width: 90.w,
                   alignment: Alignment.center,
