@@ -38,7 +38,9 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
       backgroundColor: AppColor.secondry,
       bottomNavigationBar:
           isBottomNavBar ? const CustomBottomSelectSeats() : null,
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
+        backgroundTtile: Colors.transparent,
+        backgroundIcon: AppColor.white.withOpacity(0.4),
         title: kSelectSeats,
         isBottom: false,
         isLeading: true,

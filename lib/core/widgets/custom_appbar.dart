@@ -20,6 +20,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.onChanged,
     this.isBottom = true,
     this.titleColor,
+    this.backgroundIcon,
+    this.backgroundTtile,
   });
   final String title;
   final String? hintText;
@@ -31,6 +33,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onTapIcon;
   final Color? titleColor;
   final void Function(String)? onChanged;
+  final Color? backgroundIcon;
+  final Color? backgroundTtile;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -40,17 +44,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       elevation: 0,
       backgroundColor: Colors.transparent,
-      titleTextStyle: AppFonts.bold_20
-          .copyWith(color: titleColor ?? AppColor.white.withAlpha(219)),
+      titleTextStyle:
+          AppFonts.bold_20.copyWith(color: titleColor ?? AppColor.white),
       centerTitle: true,
 
       //! title appbar
-      title: Text(
-        title,
+      title: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+        decoration: BoxDecoration(
+            color: backgroundTtile ?? AppColor.secondry.withOpacity(0.8),
+            borderRadius: BorderRadius.all(Radius.circular(12.r))),
+        child: Text(
+          title,
+        ),
       ),
 
       //! leading appbar
-      leading: isLeading ? const CustomIconBack() : null,
+      leading:
+          isLeading ? CustomIconBack(backgroundIcon: backgroundIcon) : null,
 
       //! this bottom show text form field
       bottom: isBottom

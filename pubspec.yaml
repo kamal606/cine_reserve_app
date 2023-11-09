@@ -50,10 +50,17 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
 
-
+flutter_launcher_icons:
+  image_path: "assets/images/launcher/8c8ca2bc6c638ac746717fe6700b0534.jpg"
+  adaptive_icon_foreground: "assets/images/launcher/8c8ca2bc6c638ac746717fe6700b0534.jpg"
+  adaptive_icon_background: "#ffffff"
+  android: "launcher_icon"
+  ios: true
+  min_sdk_android: 21
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -69,6 +76,7 @@ flutter:
     - assets/images/splash/
     - assets/images/test/
     - assets/images/mix/
+    - assets/images/launcher/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

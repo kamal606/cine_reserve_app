@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomIconBack extends StatelessWidget {
-  const CustomIconBack({super.key});
-
+  const CustomIconBack({super.key, this.backgroundIcon});
+  final Color? backgroundIcon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +14,7 @@ class CustomIconBack extends StatelessWidget {
       margin: EdgeInsets.only(left: 10.w),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColor.white.withOpacity(0.3),
+        color: backgroundIcon ?? AppColor.secondry.withOpacity(0.8),
       ),
       child: IconButton(
         splashColor: AppColor.secondry,
