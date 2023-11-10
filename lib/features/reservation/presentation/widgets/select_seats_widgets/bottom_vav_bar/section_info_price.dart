@@ -7,8 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SectionInfoPrice extends StatelessWidget {
   const SectionInfoPrice({
     super.key,
+    required this.numberSeats,
+    required this.priceSeats,
   });
-
+  final int numberSeats;
+  final int priceSeats;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +27,7 @@ class SectionInfoPrice extends StatelessWidget {
           width: 6.w,
         ),
         Text(
-          "Total 4 : QAR 160",
+          "Total $numberSeats : USD $priceSeats",
           style: AppFonts.regular_14.copyWith(color: AppColor.white),
         ),
       ],

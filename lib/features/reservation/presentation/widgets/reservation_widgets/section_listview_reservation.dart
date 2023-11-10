@@ -22,7 +22,9 @@ class SectionListViewReservation extends StatelessWidget {
         SizedBox(
           height: 15.h,
         ),
-        const SectionListChooseDayAndHour(),
+        SectionListChooseDayAndHour(
+          moviesEntity: moviesEntity,
+        ),
         SizedBox(
           height: 30.h,
         ),

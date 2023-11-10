@@ -7,8 +7,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SectionInfoDateAndTime extends StatelessWidget {
   const SectionInfoDateAndTime({
     super.key,
+    required this.day,
+    required this.dayNumber,
+    required this.hour,
   });
-
+  final String day;
+  final String dayNumber;
+  final String hour;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +29,7 @@ class SectionInfoDateAndTime extends StatelessWidget {
           width: 6.w,
         ),
         Text(
-          "Thu, June 15, 2023",
+          "$day, June $dayNumber, 2023",
           style: AppFonts.regular_14.copyWith(color: AppColor.white),
         ),
         SizedBox(
@@ -40,7 +45,7 @@ class SectionInfoDateAndTime extends StatelessWidget {
         SizedBox(
           width: 90.w,
           child: Text(
-            "18:00 pm",
+            "$hour pm",
             style: AppFonts.regular_14.copyWith(color: AppColor.white),
             overflow: TextOverflow.ellipsis,
           ),

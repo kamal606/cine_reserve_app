@@ -1,5 +1,5 @@
+import 'package:cine_reserve_app/core/functions/init_app_flutter.dart';
 import 'package:cine_reserve_app/core/functions/system_chrome.dart';
-import 'package:cine_reserve_app/core/utils/bloc_observer.dart';
 import 'package:cine_reserve_app/core/utils/dependency_injection.dart' as di;
 import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/check_internet/check_internet_bloc.dart';
@@ -7,8 +7,6 @@ import 'package:cine_reserve_app/features/home/presentation/blocs/new_in_cinemas
 import 'package:cine_reserve_app/features/home/presentation/blocs/search_home/search_home_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/top_rated/top_rated_movies_bloc.dart';
 import 'package:cine_reserve_app/features/home/presentation/blocs/up_coming/up_coming_bloc.dart';
-import 'package:cine_reserve_app/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,12 +25,7 @@ class MyWidgetsBinding extends WidgetsFlutterBinding {
 }
 
 Future<void> main() async {
-  MyWidgetsBinding();
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await di.initGetIt();
-  Bloc.observer = MyBlocObserver();
-  await Future.delayed(const Duration(milliseconds: 500));
+  await initFlutterApp();
   systemChrome();
 }
 

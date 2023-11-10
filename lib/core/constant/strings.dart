@@ -38,3 +38,7 @@ const String kEndPointsSearch = "search/movie?query=";
 // token //
 const String kToken =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTU0ZGJhZTRkYWRiMmVmMjQ3MTUzYjE5NzdmYTYwZiIsInN1YiI6IjY1M2I5NTdiY2M5NjgzMDBjOWUzMDMzZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jCyclBJJim-CN3ThQLMSQVUcC4mKimzUi-FdHqtpHt4";
+// hive box
+const String kDayBox = "day_box";
+const String kSeatBox = "seat_box";
+const String kMovieBox = "movie_box";

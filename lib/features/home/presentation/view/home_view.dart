@@ -144,7 +144,6 @@ class _HomeViewState extends State<HomeView> {
         return const CustomAppBar(
           title: "Mobile Tickets",
           isBottom: false,
-          backgroundTtile: Colors.transparent,
         );
       case IconIndex.home:
         return const CustomAppBar(
@@ -152,7 +151,6 @@ class _HomeViewState extends State<HomeView> {
           hintText: kSearch,
           readOnly: true,
           isOnTap: true,
-          backgroundTtile: Colors.transparent,
         );
     }
   }

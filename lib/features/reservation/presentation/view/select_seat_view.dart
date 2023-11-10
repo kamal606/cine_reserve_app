@@ -2,12 +2,15 @@ import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
 import 'package:cine_reserve_app/core/widgets/custom_elvaited_button.dart';
+import 'package:cine_reserve_app/features/reservation/data/local_data_source/date_movie_local.dart';
+import 'package:cine_reserve_app/features/reservation/data/local_data_source/seats_save_local.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/select_seats_widgets/bottom_vav_bar/body_bottom_nav_bar.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/select_seats_widgets/custom_arch.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/select_seats_widgets/custom_reserved_or_not.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/select_seats_widgets/custom_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class SelectSeatsView extends StatefulWidget {
   const SelectSeatsView({super.key});
@@ -30,16 +33,31 @@ List<StatusSeats> _seatsClassF1 = List.filled(4, StatusSeats.unselected);
 List<StatusSeats> _seatsClassF2 = List.filled(4, StatusSeats.unselected);
 
 class _SelectSeatsViewState extends State<SelectSeatsView> {
+  SeatsLocalDataSourceImpl seatsLocalDataSourceImpl =
+      SeatsLocalDataSourceImpl();
+  DateMoviesLocalDataSourceImpl dateMoviesLocalDataSourceImpl =
+      DateMoviesLocalDataSourceImpl();
   bool isBottomNavBar = false;
+  String day = "";
+  String dayNumber = "";
+  String hour = "";
+  List seats = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.secondry,
-      bottomNavigationBar:
-          isBottomNavBar ? const CustomBottomSelectSeats() : null,
+      bottomNavigationBar: isBottomNavBar
+          ? CustomBottomSelectSeats(
+              day: day,
+              dayNumber: dayNumber,
+              hour: hour,
+              seats: seats,
+              numberSeats: seats.length,
+              priceSeats: seats.length * 2,
+            )
+          : null,
       appBar: CustomAppBar(
-        backgroundTtile: Colors.transparent,
         backgroundIcon: AppColor.white.withOpacity(0.4),
         title: kSelectSeats,
         isBottom: false,
@@ -72,7 +90,9 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
                           width: double.infinity,
                           child: CustomElvatedButton(
                             title: kBook,
-                            onPressed: () {
+                            onPressed: () async {
+                              await getDayFromLocal();
+                              await getSeatsFromLocal();
                               setState(() {
                                 isBottomNavBar = true;
                               });
@@ -91,13 +111,32 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
     );
   }
 
-  //! here selected or unselected
-  void _selectSeat(int index, List<StatusSeats> seatsClass) {
+//! get number seats from local
+  Future<void> getSeatsFromLocal() async {
+    Box box = await seatsLocalDataSourceImpl.openBox();
+    seats = seatsLocalDataSourceImpl.getSeats(box);
+  }
+
+//! get date from local
+  Future<void> getDayFromLocal() async {
+    Box box = await dateMoviesLocalDataSourceImpl.openBox();
+    Map days = dateMoviesLocalDataSourceImpl.getDay(box);
+    day = days["dayTitle"];
+    hour = days["hour"];
+    dayNumber = days["dayNumber"];
+  }
+
+  //! here selected or unselected and add to local
+  void _selectSeat(int index, List<StatusSeats> seatsClass) async {
+    Box box = await seatsLocalDataSourceImpl.openBox();
+
     setState(() {
       if (seatsClass[index] == StatusSeats.unselected) {
         seatsClass[index] = StatusSeats.selected;
+        seatsLocalDataSourceImpl.addSeat(box, index);
       } else {
         seatsClass[index] = StatusSeats.unselected;
+        seatsLocalDataSourceImpl.removeSeat(box, index);
       }
     });
   }
@@ -113,7 +152,7 @@ class _SelectSeatsViewState extends State<SelectSeatsView> {
               : AppColor.white,
       onTap: isColor
           ? null
-          : () {
+          : () async {
               _selectSeat(index, seatsClass);
             },
     );

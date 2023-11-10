@@ -7,8 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SectionInfoSeats extends StatelessWidget {
   const SectionInfoSeats({
     super.key,
+    required this.seats,
   });
-
+  final List seats;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -40,7 +41,7 @@ class SectionInfoSeats extends StatelessWidget {
         SizedBox(
           width: 125.w,
           child: Text(
-            "Seat 8,9,10,11,12,",
+            "Seats ${seats.join(", ")},",
             style: AppFonts.regular_14.copyWith(color: AppColor.white),
           ),
         )

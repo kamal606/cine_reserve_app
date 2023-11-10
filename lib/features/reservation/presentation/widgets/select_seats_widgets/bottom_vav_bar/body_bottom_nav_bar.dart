@@ -8,8 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomSelectSeats extends StatelessWidget {
-  const CustomBottomSelectSeats({super.key});
-
+  const CustomBottomSelectSeats(
+      {super.key,
+      required this.day,
+      required this.dayNumber,
+      required this.hour,
+      required this.seats,
+      required this.numberSeats,
+      required this.priceSeats});
+  final String day;
+  final String dayNumber;
+  final String hour;
+  final List seats;
+  final int numberSeats;
+  final int priceSeats;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -25,7 +37,7 @@ class CustomBottomSelectSeats extends StatelessWidget {
               top: BorderSide(color: AppColor.white),
             ),
           ),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
@@ -33,13 +45,20 @@ class CustomBottomSelectSeats extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SectionInfoDateAndTime(),
-                    SectionInfoSeats(),
-                    SectionInfoPrice()
+                    SectionInfoDateAndTime(
+                      dayNumber: dayNumber,
+                      hour: hour,
+                      day: day,
+                    ),
+                    SectionInfoSeats(seats: seats),
+                    SectionInfoPrice(
+                      numberSeats: numberSeats,
+                      priceSeats: priceSeats,
+                    )
                   ],
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 1,
                 child: SectionButton(),
               ),

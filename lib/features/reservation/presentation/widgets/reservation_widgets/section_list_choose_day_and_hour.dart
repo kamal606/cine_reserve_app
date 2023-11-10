@@ -1,15 +1,19 @@
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/utils/router.dart';
 import 'package:cine_reserve_app/core/widgets/custom_elvaited_button.dart';
+import 'package:cine_reserve_app/features/home/data/data_source/local_data_source/movie_local.dart';
+import 'package:cine_reserve_app/features/home/domain/entity/movie_entity.dart';
+import 'package:cine_reserve_app/features/reservation/data/local_data_source/date_movie_local.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_day.dart';
 import 'package:cine_reserve_app/features/reservation/presentation/widgets/reservation_widgets/custom_box_choose_hour.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class SectionListChooseDayAndHour extends StatefulWidget {
-  const SectionListChooseDayAndHour({super.key});
-
+  const SectionListChooseDayAndHour({super.key, required this.moviesEntity});
+  final MoviesEntity moviesEntity;
   @override
   State<SectionListChooseDayAndHour> createState() =>
       _SectionListChooseDayAndHourState();
@@ -17,6 +21,9 @@ class SectionListChooseDayAndHour extends StatefulWidget {
 
 class _SectionListChooseDayAndHourState
     extends State<SectionListChooseDayAndHour> {
+  DateMoviesLocalDataSourceImpl dayMoviesLocalDataSourceImpl =
+      DateMoviesLocalDataSourceImpl();
+
   List<String> titles = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   List<String> subTitles = ["13", "14", "15", "16", "17"];
   List<String> hour = ["16:00", "17:00", "18:00", "19:00", "20:00"];
@@ -26,6 +33,10 @@ class _SectionListChooseDayAndHourState
 
   bool selectedHourIndex = false;
   bool selectedDayIndex = false;
+
+  String dayTitles = "";
+  String dayNumber = "";
+  String dayHour = "";
 
   void handleTapHour(int index) {
     setState(() {
@@ -53,6 +64,25 @@ class _SectionListChooseDayAndHourState
     });
   }
 
+  Map<String, String> daysMethod() {
+    Map<String, String> days;
+    days = {
+      "dayTitle": dayTitles,
+      "dayNumber": dayNumber,
+      "hour": dayHour,
+    };
+    return days;
+  }
+
+  Future<void> addDaytoLocal() async {
+    Box box = await dayMoviesLocalDataSourceImpl.openBox();
+    await dayMoviesLocalDataSourceImpl.addDay(box, daysMethod());
+  }
+
+  Future<void> addMovietoLocal() async {
+    await MovieLocalDataSourceImpl.addMovie(widget.moviesEntity);
+  }
+
   bool get showButton => selectedHourIndex && selectedDayIndex == true;
   @override
   Widget build(BuildContext context) {
@@ -67,6 +97,8 @@ class _SectionListChooseDayAndHourState
               return CustomBoxChooseDay(
                 isTapDay: isTapDayList[index],
                 onTap: () {
+                  dayTitles = titles[index];
+                  dayNumber = subTitles[index];
                   handleTapDay(index);
                 },
                 alignment: Alignment(
@@ -88,6 +120,7 @@ class _SectionListChooseDayAndHourState
                 isTapHour: isTapHour[index],
                 onTap: () {
                   handleTapHour(index);
+                  dayHour = hour[index];
                 },
                 alignment: Alignment(
                   [-1, -0.5, 0, 0.5, 1][index].toDouble(),
@@ -103,7 +136,11 @@ class _SectionListChooseDayAndHourState
             width: double.infinity,
             child: CustomElvatedButton(
               title: kReservation,
-              onPressed: () {
+              onPressed: () async {
+                await addMovietoLocal();
+                await addDaytoLocal();
+
+                if (!context.mounted) return;
                 context.push(AppRouter.selectSeatsView);
               },
             ),
