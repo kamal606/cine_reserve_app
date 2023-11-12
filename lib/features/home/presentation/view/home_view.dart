@@ -2,7 +2,6 @@ import 'package:cine_reserve_app/core/constant/app_assets_icons.dart';
 import 'package:cine_reserve_app/core/constant/app_color.dart';
 import 'package:cine_reserve_app/core/constant/strings.dart';
 import 'package:cine_reserve_app/core/widgets/custom_appbar.dart';
-
 import 'package:cine_reserve_app/features/home/presentation/widgets/home_widgets/body_home_view.dart';
 import 'package:cine_reserve_app/features/tickets/presentation/view/tickets_view.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +80,10 @@ class _HomeViewState extends State<HomeView> {
   }
 
 //! hide icon in bottom appbar when floating change position
-  Widget _buildIcon(IconIndex iconIndex, String iconAsset) {
+  Widget _buildIcon(
+    IconIndex iconIndex,
+    String iconAsset,
+  ) {
     final bool isVisible = indexIcon == iconIndex;
     return !isVisible
         ? InkWell(

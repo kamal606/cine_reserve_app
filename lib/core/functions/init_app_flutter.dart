@@ -13,10 +13,11 @@ Future<void> initFlutterApp() async {
   MyWidgetsBinding();
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  Hive.registerAdapter(MoviesEntityAdapter());
   await Hive.openBox(kMovieBox);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await di.initGetIt();
-  Hive.registerAdapter(MoviesEntityAdapter());
+
   Bloc.observer = MyBlocObserver();
   await Future.delayed(const Duration(milliseconds: 500));
 }
